@@ -1,10 +1,5 @@
-# @Author: rahaingomanana <laurent>
 # @Date:   2020-10-15T19:31:27+02:00
-# @Email:  laurent.rahaingomanana@estaca.eu
-# @Filename: main.py
-# @Last modified by:   laurent
-# @Last modified time: 2020-10-15T19:42:36+02:00
-
+# @Last modified time: 2020-10-15T19:54:22+02:00
 
 
 from tkinter import *
