@@ -1,3 +1,12 @@
+# @Author: rahaingomanana <laurent>
+# @Date:   2020-10-15T19:31:27+02:00
+# @Email:  laurent.rahaingomanana@estaca.eu
+# @Filename: main.py
+# @Last modified by:   laurent
+# @Last modified time: 2020-10-15T19:42:36+02:00
+
+
+
 from tkinter import *
 
 # On crée une fenêtre, racine de notre interface
@@ -6,7 +15,7 @@ fenetre = Tk()
 # On crée un label (ligne de texte) souhaitant la bienvenue
 # Note : le premier paramètre passé au constructeur de Label est notre
 # interface racine
-champ_label = Label(fenetre, text="Salut les Zér0s !")
+champ_label = Label(fenetre, text="Test Laurent: Clément est le plus beau")
 
 # On affiche le label dans la fenêtre
 champ_label.pack()
