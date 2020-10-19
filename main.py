@@ -1,29 +1,30 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-10-15T19:54:22+02:00
-
+# @Last modified time: 2020-10-20T00:12:44+02:00
 
 from tkinter import *
 
-# On crée une fenêtre, racine de notre interface
-fenetre = Tk()
+# On crée une fenêtre
+window = Tk()
+window.title("Interface Pilote")
 
-# On crée un label (ligne de texte) souhaitant la bienvenue
-# Note : le premier paramètre passé au constructeur de Label est notre
-# interface racine
-champ_label = Label(fenetre, text="Test Laurent: Clément est le plus beau")
+#set windows dimensions adapted to the screen
+width = window.winfo_screenwidth()
+height = window.winfo_screenheight()
+window.geometry(f"{width}x{height}")
 
-# On affiche le label dans la fenêtre
-champ_label.pack()
+# Note : le premier paramètre passé est l'objet instancié concerné
+label = Label(window, text="Test de Label")
+label.pack()
 
-bouton_quitter = Button(fenetre, text="Quitter", command=fenetre.quit)
-bouton_quitter.pack()
+quit_btn = Button(window, text="Quitter", command=window.quit)
+quit_btn.pack()
 
-cadre = Frame(fenetre, width=768, height=576, borderwidth=1)
-cadre.pack(fill=BOTH)
+frame1 = Frame(window, width=width, height=height, borderwidth=1, bg="blue")
+frame1.pack()
 
-message = Label(cadre, text="Siera window")
+message = Label(frame1, text="Siera window")
 message.pack(side="top", fill=X)
 
 
 # On démarre la boucle Tkinter qui s'interompt quand on ferme la fenêtre
-fenetre.mainloop()
+mainloop()
