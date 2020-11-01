@@ -1,5 +1,5 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-01T18:50:22+01:00
+# @Last modified time: 2020-11-01T18:58:19+01:00
 
 from tkinter import *
 from PIL import *
@@ -17,6 +17,12 @@ window.geometry(f"{width_screen}x{height_screen}")
 
 
 
+# CONTAINER
+
+container_frame = LabelFrame(window, text="CONTAINER", padx=5, pady=5) #padding
+container_frame.place(relx=0.5, rely=0.5, anchor=CENTER)
+
+
 # DONNEES MOTEUR
 # - Signal fuel ON (contact voiture)
 # - Température moteur
@@ -24,7 +30,7 @@ window.geometry(f"{width_screen}x{height_screen}")
 # - Pression du carburant
 # - Rotation par minute
 
-motor_frame = LabelFrame(window, text="DONNÉES MOTEUR", padx=5, pady=5) #padding
+motor_frame = LabelFrame(container_frame, text="DONNÉES MOTEUR", padx=5, pady=5)
 motor_frame.grid(column=0, row=0)
 
 fuel_on = Label(motor_frame, text="Signal fuel ON")
@@ -44,7 +50,7 @@ rpm.grid(column=0, row=1)
 # - Vitesse moyenne tour actuel
 # - Vitesse moyenne tour précédent
 
-speed_frame = LabelFrame(window, text="VITESSES", padx=5, pady=5)
+speed_frame = LabelFrame(container_frame, text="VITESSES", padx=5, pady=5)
 speed_frame.grid(column=1, row=1)
 
 speed_round = Label(speed_frame, text="Vitesse moyenne tour actuel")
@@ -59,7 +65,7 @@ speed_last_round.grid(column=0, row=2)
 # - temps par tour
 # - chronometre depuis le debut du tour
 
-time_frame = LabelFrame(window, text="TEMPS", padx=5, pady=5)
+time_frame = LabelFrame(container_frame, text="TEMPS", padx=5, pady=5)
 time_frame.grid(column=2, row=2)
 
 time_round = Label(time_frame, text="Temps par tour")
@@ -72,7 +78,7 @@ chrono_round.grid(column=1, row=0)
 # - Tension de batterie
 # - Données de sonde lambda
 
-others_frame = LabelFrame(window, text="AUTRES", padx=5, pady=5)
+others_frame = LabelFrame(container_frame, text="AUTRES", padx=5, pady=5)
 others_frame.grid(column=2, row=0)
 
 battery_tension = Label(others_frame, text="Tension de la batterie")
@@ -85,7 +91,7 @@ lambda_sens.grid(column=1, row=0)
 
 
 
-exit_btn = Button(window, text="Quitter", command=window.quit, fg="red")
+exit_btn = Button(container_frame, text="Quitter", command=window.quit, fg="red")
 exit_btn.grid(column=2, row=3)
 
 # Boucle Tkinter qui s'interompt quand on ferme la fenêtre
