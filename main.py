@@ -3,12 +3,17 @@
 
 from tkinter import *
 from PIL import *
+import os
+
+#Récupère le chemin du dossier de travail
+old = os.getcwd()
+cwd = old.replace("\\" , "/" )
 
 # Crée une fenêtre
 window = Tk()
 window.title("Interface Pilote")
 # Add full path of the .ico image (not relative path)
-window.iconbitmap("/Users/laurent/Desktop/SiERA/PITA/Interface-Pilote/images/estaca.ico")
+window.iconbitmap(cwd + "/images/estaca.ico")
 
 # set windows dimensions adapted to the screen
 width_screen = window.winfo_screenwidth()
