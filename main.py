@@ -1,10 +1,10 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-03T18:55:24+01:00
+# @Last modified time: 2020-11-03T19:46:12+01:00
 
 from tkinter import *
 from PIL import *
 import os
-import galvanometer
+from galvanometer import *
 
 # get current working directory
 cwd = os.getcwd()
@@ -74,7 +74,7 @@ speed = Label(speed_frame, text="Vitesse instantanée")
 speed.grid(column=0, row=1)
 speed_last_round = Label(speed_frame, text="Vitesse moyenne tour précédent")
 speed_last_round.grid(column=0, row=2)
-galva = Galva.__init__(speed_frame)
+galva = Galva(speed_frame)
 
 
 # AUTRES
