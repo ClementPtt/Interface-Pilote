@@ -1,11 +1,12 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-03T13:53:27+01:00
+# @Last modified time: 2020-11-03T15:06:27+01:00
 
 from tkinter import *
 from PIL import *
 import os
 
-#Récupère le chemin du dossier de travail
+# Récupère le chemin du dossier de travail
+# Attention ça récupère pas le dossier de travail mais le chemin absolu de ton ouverture de terminal
 old = os.getcwd()
 cwd = old.replace("\\" , "/" )
 
