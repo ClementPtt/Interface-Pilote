@@ -1,5 +1,5 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-01T20:17:04+01:00
+# @Last modified time: 2020-11-03T13:53:27+01:00
 
 from tkinter import *
 from PIL import *
@@ -14,6 +14,7 @@ window = Tk()
 window.title("Interface Pilote")
 # Add full path of the .ico image (not relative path)
 window.iconbitmap(cwd + "/images/estaca.ico")
+print(cwd + "/images/estaca.ico")
 
 # set windows dimensions adapted to the screen
 width_screen = window.winfo_screenwidth()
