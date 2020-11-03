@@ -1,20 +1,18 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-03T17:33:04+01:00
+# @Last modified time: 2020-11-03T17:52:06+01:00
 
 from tkinter import *
 from PIL import *
 import os
 
-
-old = os.getcwd() # current working directory
-cwd = old.replace("\\" , "/" ) #windows ?
+# get current working directory
+cwd = os.getcwd()
 
 # Crée une fenêtre
 window = Tk()
 window.title("Interface Pilote")
-# Add full path of the .ico image (not relative path)
+# Add full path of the .ico image
 window.iconbitmap(cwd + "/images/estaca.ico")
-print(old)
 
 # set windows dimensions adapted to the screen
 width_screen = window.winfo_screenwidth()
