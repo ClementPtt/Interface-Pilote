@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-11-03T18:25:22+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-11-03T20:55:47+01:00
+# @Last modified time: 2020-11-03T21:04:35+01:00
 
 from tkinter import *
 from PIL import *
@@ -15,5 +15,5 @@ class Galva(Canvas):
         #Dessin du Galva
         canvas = Canvas(window, width=size, height=size)
         window.update()
-        canvas.create_oval(0,0,size,size,width=3)
+        canvas.create_oval(4,4,size,size,width=3)
         canvas.grid(column=0, row=3)
