@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-11-03T18:25:22+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-11-03T19:57:47+01:00
+# @Last modified time: 2020-11-03T20:55:47+01:00
 
 from tkinter import *
 from PIL import *
@@ -11,8 +11,9 @@ import time
 import random
 
 class Galva(Canvas):
-    def __init__(self, window):
+    def __init__(self, window, size, value=0, range=0):
         #Dessin du Galva
-        self.canvas = Canvas(window, width=400, height=400)
-        self.canvas.create_rectangle(0,0,200,200,fill="white",outline="red")
-        self.canvas.grid(column=0, row=3)
+        canvas = Canvas(window, width=size, height=size)
+        window.update()
+        canvas.create_oval(0,0,size,size,width=3)
+        canvas.grid(column=0, row=3)
