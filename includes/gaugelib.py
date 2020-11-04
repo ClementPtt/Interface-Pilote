@@ -1,3 +1,10 @@
+# @Author: laurent
+# @Date:   2020-11-04T16:09:51+01:00
+# @Last modified by:   laurent
+# @Last modified time: 2020-11-04T16:10:35+01:00
+
+
+
 import tkinter as tk
 import cmath
 import sys
@@ -15,7 +22,7 @@ class ini(tk.Frame):
         self.size = size
     def to_absolute(self, x, y):
         return x + self.size/2, y + self.size/2
-		
+
 def draw_dial(canv,x0,y0,degree, t,r):
     this_color = "#00A2E8"
     xr=x0
@@ -40,7 +47,7 @@ def draw_dial(canv,x0,y0,degree, t,r):
     canv.create_polygon(xyz, fill=this_color,tags=('dial', 'two'))
     canv.create_oval(xr-5,yr-5,xr+5,yr+5,fil=this_color,tags=('dial', 'three'))
     canv.create_line(xr,yr,px,py,fill="light gray",tags=('dial', 'four'))
-    
+
 class DrawGauge2(ini):
     def __init__(self, parent,
                  max_value: (float, int)=100.0,
@@ -66,7 +73,7 @@ class DrawGauge2(ini):
         self.draw_tick()
         initial_value = 0.0
         self.set_value(initial_value)
-        
+
     def draw_background1(self, divisions=100):
         self.canvas.create_arc(self.size/50, self.size/50, self.size-self.size/50, self.size-self.size/50,
                        style="arc",width=4,start=-61, extent=300,
@@ -83,7 +90,7 @@ class DrawGauge2(ini):
                                outline = "orange")
         self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="white", text='')
 
-        
+
     def draw_background2(self, divisions=100):
         self.canvas.create_arc(self.size/5, self.size/6, self.size-self.size/6, self.size-self.size/6,
                                style="arc",width=self.size/10,start=-61, extent=61,
@@ -101,13 +108,13 @@ class DrawGauge2(ini):
                                width=self.size/10,style="arc",start=180, extent=60,
                                outline = "green")
         self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="white", text='')
-        
+
     def draw_tick(self,divisions=100):
         inner_tick_radius = int((self.size-self.size/9) * 0.35)
         outer_tick_radius = int((self.size-self.size/9) * 0.45)
         label = self.unit
         self.canvas.create_text(self.size/2,2*self.size/5, font=("Arial",int(self.size/20)),fill="white", text=label,angle=0)
-        label = 'Ardiotech'
+        label = 'PV3e'
         self.canvas.create_text(self.size/2,3*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="light blue", text=label,angle=0)
         self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="white", text='')
         inner_tick_radius2 = int((self.size-self.size/9) * 0.48)
@@ -137,7 +144,7 @@ class DrawGauge2(ini):
                 y= outer_point2.imag + self.size/2
                 label = str(int(self.min_value + tick * (self.max_value-self.min_value)/100))
                 self.canvas.create_text(x,y, font=("Arial",int(self.size/25)),fill="white", text=label)
-                
+
     def set_value(self, number: (float, int)):
         number = number if number <= self.max_value else self.max_value
         number = number if number > self.min_value else self.min_value
@@ -172,7 +179,7 @@ class DrawGauge3(ini):
         self.draw_tick()
         initial_value = 0.0
         self.set_value(initial_value)
-    
+
     def draw_background1(self, divisions=100):
         self.canvas.create_arc(self.size/50, self.size/50, self.size-self.size/50, self.size-self.size/50,
                        style="arc",width=4,start=0, extent=180,
@@ -191,7 +198,7 @@ class DrawGauge3(ini):
                                width=self.size/9,style="arc",start=120, extent=60,
                                outline = "light green")
         self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="white", text='')
-    
+
     def draw_background2(self, divisions=100):
         self.canvas.create_arc(self.size/7, self.size/7, self.size-self.size/7, self.size-self.size/7,
                                style="arc",width=self.size/9,start=0, extent=60,
@@ -210,7 +217,7 @@ class DrawGauge3(ini):
         outer_tick_radius = int((self.size-self.size/9) * 0.45)
         label = self.unit
         self.canvas.create_text(self.size/2,3*self.size/10, font=("Arial",int(self.size/20)),fill="red", text=label,angle=0)
-        label = 'Ardiotech'
+        label = 'PV3e'
         self.canvas.create_text(self.size/2,4*self.size/10, font=("Arial",int(self.size/18),'bold'),fill="light blue", text=label,angle=0)
         self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="dark blue", text='')
         inner_tick_radius2 = int((self.size-self.size/9) * 0.48)
@@ -222,7 +229,7 @@ class DrawGauge3(ini):
             angle_in_radians = (cmath.pi)+ tick/divisions * cmath.pi
             inner_point = cmath.rect(inner_tick_radius, angle_in_radians)
             outer_point = cmath.rect(outer_tick_radius, angle_in_radians)
-            
+
 
             if (tick%10) == 0:
                 self.canvas.create_line(
