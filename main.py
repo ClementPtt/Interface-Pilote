@@ -1,10 +1,10 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-03T21:06:09+01:00
+# @Last modified time: 2020-11-04T15:36:02+01:00
 
 from tkinter import *
 from PIL import *
 import os
-from galvanometer import *
+import includes.gaugelib
 
 # get current working directory
 cwd = os.getcwd()
@@ -74,7 +74,6 @@ speed = Label(speed_frame, text="Vitesse instantanée")
 speed.grid(column=0, row=1)
 speed_last_round = Label(speed_frame, text="Vitesse moyenne tour précédent")
 speed_last_round.grid(column=0, row=2)
-galva = Galva(speed_frame, 150)
 
 
 # AUTRES
@@ -88,8 +87,6 @@ battery_tension = Label(others_frame, text="Tension de la batterie")
 battery_tension.grid(column=0, row=0)
 lambda_sens = Label(others_frame, text="Données de la sonde lambda")
 lambda_sens.grid(column=1, row=0)
-
-
 
 
 
