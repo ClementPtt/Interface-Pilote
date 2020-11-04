@@ -1,4 +1,5 @@
 from tkinter import *
+import time
 
 class Chrono(Frame):
     def __init__(self, master):
@@ -8,8 +9,18 @@ class Chrono(Frame):
         self.titre = Label(self.frame, text="Chronometre")
         self.titre.grid(column=0, row=0)
 
-        play = Button(master, text="Play", command=self.play)
-        play.pack()
+        self.play_pause_button = Button(master, text="Play", command=self.play_pause)
+        self.play_pause_bin = 0
+        self.play_pause_button.pack()
 
-    def play(self):
-        self.titre.config(text="test")
+
+
+    def play_pause(self):
+        if self.play_pause_bin == 0:
+            self.play_pause_button.config(text="Pause")
+            self.play_pause_bin = 1
+        else:
+            self.play_pause_button.config(text="Play")
+            self.play_pause_bin = 0
+
+
