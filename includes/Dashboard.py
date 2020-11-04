@@ -1,8 +1,9 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-04T18:06:45+01:00
+# @Last modified time: 2020-11-04T20:01:10+01:00
 
 from tkinter import *
 import os
+import time
 from includes.gaugelib import *
 from includes.chrono import *
 
@@ -97,11 +98,12 @@ class Dashboard:
 
         rpm = DrawGauge2(
             self.motor_frame,
-            max_value=100.0,
+            max_value=5000.0,
             min_value=0,
             size=200,
             bg_col='black',
             unit="tour/min", bg_sel=2)
         rpm.grid(column=0, row=2)
 
-        # draw_dial(self.time_frame,0,0,360, 1,200)
+    def draw_chrono(self):
+        pass
