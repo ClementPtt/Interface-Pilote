@@ -1,10 +1,9 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-04T16:03:38+01:00
+# @Last modified time: 2020-11-04T15:52:09+01:00
 
 from tkinter import *
 from PIL import *
 import os
-from includes import *
 from includes import gaugelib
 
 # get current working directory
@@ -77,13 +76,13 @@ speed_last_round = Label(speed_frame, text="Vitesse moyenne tour précédent")
 speed_last_round.grid(column=0, row=2)
 
 p1 = gaugelib.DrawGauge2(
-    speed_frame,
+    window,
     max_value=100.0,
     min_value=0,
     size=200,
     bg_col='black',
     unit = "Vitesse km/h",bg_sel = 2)
-p1.grid(column=0, row=3)
+p1.pack()
 
 
 # AUTRES
