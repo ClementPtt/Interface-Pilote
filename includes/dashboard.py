@@ -1,5 +1,5 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-04T20:01:10+01:00
+# @Last modified time: 2020-11-04T21:48:09+01:00
 
 from tkinter import *
 import os
@@ -82,8 +82,6 @@ class Dashboard:
         lambda_sens = Label(self.others_frame, text="Données de la sonde lambda")
         lambda_sens.grid(column=1, row=0)
 
-        self.test_frame = Chrono(self.master)
-
 
 
     def draw_gauge(self):
@@ -106,4 +104,5 @@ class Dashboard:
         rpm.grid(column=0, row=2)
 
     def draw_chrono(self):
-        pass
+        chrono = Chrono(self.time_frame)
+        chrono.grid(column=2, row=0)
