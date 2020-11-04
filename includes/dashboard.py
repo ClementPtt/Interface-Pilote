@@ -105,4 +105,4 @@ class Dashboard:
 
     def draw_chrono(self):
         chrono = Chrono(self.time_frame)
-        chrono.grid(column=2, row=0)
+        chrono.pack()
