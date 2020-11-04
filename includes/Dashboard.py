@@ -2,9 +2,9 @@
 # @Last modified time: 2020-11-04T18:06:45+01:00
 
 from tkinter import *
-from PIL import *
 import os
 from includes.gaugelib import *
+from includes.chrono import *
 
 
 class Dashboard:
@@ -14,7 +14,7 @@ class Dashboard:
         # set windows dimensions adapted to the screen
         width_screen = self.master.winfo_screenwidth()
         height_screen = self.master.winfo_screenheight()
-        self.master.geometry(f"{width_screen}x{height_screen}")
+        self.master.geometry(f"{width_screen - 150}x{height_screen - 150}")
         self.master.title("Interface Pilote")
         # get current working directory
         cwd = os.getcwd()
@@ -69,7 +69,6 @@ class Dashboard:
         speed_last_round = Label(self.speed_frame, text="Vitesse moyenne tour précédent")
         speed_last_round.grid(column=0, row=2)
 
-
         # AUTRES
         # - Tension de la batterie
         # - Données de la sonde lambda
@@ -81,6 +80,10 @@ class Dashboard:
         battery_tension.grid(column=0, row=0)
         lambda_sens = Label(self.others_frame, text="Données de la sonde lambda")
         lambda_sens.grid(column=1, row=0)
+
+        self.test_frame = Chrono(self.master)
+
+
 
     def draw_gauge(self):
         speed = DrawGauge2(
