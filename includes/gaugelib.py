@@ -1,8 +1,5 @@
-# @Author: laurent
 # @Date:   2020-11-04T16:09:51+01:00
-# @Last modified by:   laurent
-# @Last modified time: 2020-11-04T16:10:35+01:00
-
+# @Last modified time: 2020-11-04T20:48:14+01:00
 
 
 import tkinter as tk
@@ -13,7 +10,6 @@ import math
 import time
 from decimal import Decimal
 
-#exec(open('images.py').read())
 
 class ini(tk.Frame):
     def __init__(self, parent, size=100, **options):
