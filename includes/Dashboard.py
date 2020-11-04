@@ -1,10 +1,10 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-04T15:52:09+01:00
-import tkinter as tk
+# @Last modified time: 2020-11-04T17:38:26+01:00
+
 from tkinter import *
 from PIL import *
 import os
-from includes import gaugelib
+from includes.gaugelib import *
 
 
 class Dashboard:
@@ -72,14 +72,14 @@ class Dashboard:
         speed_last_round = Label(speed_frame, text="Vitesse moyenne tour précédent")
         speed_last_round.grid(column=0, row=2)
 
-        p1 = gaugelib.DrawGauge2(
-            master,
+        p1 = DrawGauge2(
+            speed_frame,
             max_value=100.0,
             min_value=0,
             size=200,
             bg_col='black',
             unit="Vitesse km/h", bg_sel=2)
-        p1.pack()
+        p1.grid(column=0, row=3)
 
         others_frame = LabelFrame(master, text="AUTRES", padx=5, pady=5)
         others_frame.pack(side=RIGHT, anchor=S)
@@ -88,4 +88,3 @@ class Dashboard:
         battery_tension.grid(column=0, row=0)
         lambda_sens = Label(others_frame, text="Données de la sonde lambda")
         lambda_sens.grid(column=1, row=0)
-
