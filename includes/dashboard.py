@@ -3,7 +3,6 @@
 
 from tkinter import *
 import os
-import time
 from includes.gaugelib import *
 from includes.chrono import *
 
@@ -87,7 +86,7 @@ class Dashboard:
     def draw_gauge(self):
         speed = DrawGauge2(
             self.speed_frame,
-            max_value=100.0,
+            max_value=50,
             min_value=0,
             size=200,
             bg_col='black',

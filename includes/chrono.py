@@ -25,6 +25,7 @@ class Chrono(LabelFrame): # use Frame if we dont need LabelFrame
             self.play_reset_bin = 1
             self.cunt()
         elif self.play_reset_bin == 1:
+            print('Dernier Temps : ', self.compteur, 's')
             self.play_reset_button.config(text="Play")
             self.play_reset_bin = 0
             self.cunt()
@@ -33,8 +34,8 @@ class Chrono(LabelFrame): # use Frame if we dont need LabelFrame
 
     def cunt(self):
         if self.play_reset_bin == 1:
-            self.compteur = int(time.time() - self.start)
-            self.titre.config(text=self.compteur)
-            self.titre.after(1000, self.cunt)
+            self.compteur = int((time.time() - self.start)*10)/10
+            self.titre.config(text=self.compteur )
+            self.titre.after(100, self.cunt)
         else:
             self.titre.config(text='0')
