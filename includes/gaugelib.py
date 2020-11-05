@@ -1,5 +1,5 @@
 # @Date:   2020-11-04T16:09:51+01:00
-# @Last modified time: 2020-11-05T13:40:10+01:00
+# @Last modified time: 2020-11-05T13:56:37+01:00
 
 
 import tkinter as tk
@@ -112,10 +112,9 @@ class DrawGauge2(ini):
         inner_tick_radius = int((self.size-self.size/9) * 0.35)
         outer_tick_radius = int((self.size-self.size/9) * 0.45)
         label = self.unit
-        self.canvas.create_text(self.size/2,2*self.size/5, font=("Arial",int(self.size/20)),fill="white", text=label,angle=0)
+        self.canvas.create_text(self.size/2,2*self.size/5, font=("Arial",int(self.size/15)),fill="white", text=label,angle=0)
         # label = 'PV3e'
-        label = ''
-        self.canvas.create_text(self.size/2,3*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="light blue", text=label,angle=0)
+        # self.canvas.create_text(self.size/2,3*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="light blue", text=label,angle=0)
         self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="white", text='')
         inner_tick_radius2 = int((self.size-self.size/9) * 0.48)
         outer_tick_radius2 = int((self.size-self.size/9) * 0.50)
@@ -149,11 +148,11 @@ class DrawGauge2(ini):
         number = number if number <= self.max_value else self.max_value
         number = number if number > self.min_value else self.min_value
         degree = 30.0 + (number- self.min_value) / (self.max_value - self.min_value) * 300.0
-        draw_dial(self.canvas,self.size/2,self.size/2,-1*degree,self.size/3,8)
+        # draw_dial(self.canvas,self.size/2,self.size/2,-1*degree,self.size/3,8)
         label = str('%.2f' % number)
         self.canvas.delete(self.readout)
-        self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/14),'bold'),fill="white", text=label,angle=0)
-
+        self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/10),'bold'),fill="white", text=label,angle=0)
+        draw_dial(self.canvas,self.size/2,self.size/2,-1*degree,self.size/3,8)
 
 
 

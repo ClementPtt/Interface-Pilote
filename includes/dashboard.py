@@ -1,5 +1,5 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-05T01:36:32+01:00
+# @Last modified time: 2020-11-05T13:48:22+01:00
 
 from tkinter import *
 import os
@@ -92,6 +92,7 @@ class Dashboard:
             bg_col='black',
             unit="Vitesse km/h", bg_sel=2)
         speed.grid(column=0, row=2)
+        speed.set_value(30)
 
         rpm = DrawGauge2(
             self.motor_frame,
