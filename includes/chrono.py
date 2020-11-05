@@ -2,16 +2,15 @@
 # @Last modified time: 2020-11-05T01:42:06+01:00
 
 
-
 from tkinter import *
 import tkinter as tk
 import time
 
 
-class Chrono(LabelFrame): # use Frame if we dont need LabelFrame
+class Chrono(LabelFrame):  # use Frame if we dont need LabelFrame
     def __init__(self, master):
         LabelFrame.__init__(self, master, text="widget")
-        self.titre = Label(self, text="Chronometre")
+        self.titre = Label(self, text="0.0")
         self.titre.pack()
 
         self.play_reset_bin = 0
@@ -30,12 +29,10 @@ class Chrono(LabelFrame): # use Frame if we dont need LabelFrame
             self.play_reset_bin = 0
             self.cunt()
 
-
-
     def cunt(self):
         if self.play_reset_bin == 1:
-            self.compteur = int((time.time() - self.start)*10)/10
-            self.titre.config(text=self.compteur )
+            self.compteur = int((time.time() - self.start) * 10) / 10
+            self.titre.config(text=self.compteur)
             self.titre.after(100, self.cunt)
         else:
             self.titre.config(text='0')
