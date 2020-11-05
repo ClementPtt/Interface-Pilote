@@ -1,5 +1,5 @@
 # @Date:   2020-11-04T16:09:51+01:00
-# @Last modified time: 2020-11-04T20:48:14+01:00
+# @Last modified time: 2020-11-05T13:40:10+01:00
 
 
 import tkinter as tk
@@ -88,28 +88,32 @@ class DrawGauge2(ini):
 
 
     def draw_background2(self, divisions=100):
-        self.canvas.create_arc(self.size/5, self.size/6, self.size-self.size/6, self.size-self.size/6,
-                               style="arc",width=self.size/10,start=-61, extent=61,
-                               outline = "light grey")#style=tk.PIESLICE
+        # self.canvas.create_arc(self.size/5, self.size/6, self.size-self.size/6, self.size-self.size/6,
+        #                        style="arc",width=self.size/10,start=-61, extent=61,
+        #                        outline = "light grey")#style=tk.PIESLICE
+        # self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
+        #                        width=self.size/10,style="arc", start=0, extent=60,
+        #                        outline = "light grey")
+        # self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
+        #                        width=self.size/10,style="arc",start=60, extent=60,
+        #                        outline = "light grey")
+        # self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
+        #                        width=self.size/10,style="arc",start=120, extent=60,
+        #                        outline = "light grey")
+        # self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
+        #                        width=self.size/10,style="arc",start=180, extent=60,
+        #                        outline = "light grey")
         self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
-                               width=self.size/10,style="arc", start=0, extent=60,
-                               outline = "light grey")
-        self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
-                               width=self.size/10,style="arc",start=60, extent=60,
-                               outline = "light grey")
-        self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
-                               width=self.size/10,style="arc",start=120, extent=60,
-                               outline = "light grey")
-        self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
-                               width=self.size/10,style="arc",start=180, extent=60,
-                               outline = "light grey")
-        self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="white", text='')
+                              width=self.size/10,style="arc",start=-61, extent=300,
+                              outline = "light grey") # added
+        # self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="white", text='')
 
     def draw_tick(self,divisions=100):
         inner_tick_radius = int((self.size-self.size/9) * 0.35)
         outer_tick_radius = int((self.size-self.size/9) * 0.45)
         label = self.unit
         self.canvas.create_text(self.size/2,2*self.size/5, font=("Arial",int(self.size/20)),fill="white", text=label,angle=0)
+        # label = 'PV3e'
         label = ''
         self.canvas.create_text(self.size/2,3*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="light blue", text=label,angle=0)
         self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="white", text='')
@@ -149,6 +153,19 @@ class DrawGauge2(ini):
         label = str('%.2f' % number)
         self.canvas.delete(self.readout)
         self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/14),'bold'),fill="white", text=label,angle=0)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class DrawGauge3(ini):
     def __init__(self, parent,
