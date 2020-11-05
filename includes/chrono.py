@@ -35,4 +35,4 @@ class Chrono(LabelFrame):  # use Frame if we dont need LabelFrame
             self.titre.config(text=self.compteur)
             self.titre.after(100, self.cunt)
         else:
-            self.titre.config(text='0')
+            self.titre.config(text='0.0')
