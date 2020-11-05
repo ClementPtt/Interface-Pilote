@@ -90,19 +90,19 @@ class DrawGauge2(ini):
     def draw_background2(self, divisions=100):
         self.canvas.create_arc(self.size/5, self.size/6, self.size-self.size/6, self.size-self.size/6,
                                style="arc",width=self.size/10,start=-61, extent=61,
-                               outline = "red")#style=tk.PIESLICE
+                               outline = "light grey")#style=tk.PIESLICE
         self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
                                width=self.size/10,style="arc", start=0, extent=60,
-                               outline = "orange")
+                               outline = "light grey")
         self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
                                width=self.size/10,style="arc",start=60, extent=60,
-                               outline = "yellow")
+                               outline = "light grey")
         self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
                                width=self.size/10,style="arc",start=120, extent=60,
-                               outline = "light green")
+                               outline = "light grey")
         self.canvas.create_arc(self.size/6, self.size/6, self.size-self.size/6, self.size-self.size/6,
                                width=self.size/10,style="arc",start=180, extent=60,
-                               outline = "green")
+                               outline = "light grey")
         self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="white", text='')
 
     def draw_tick(self,divisions=100):
@@ -110,7 +110,7 @@ class DrawGauge2(ini):
         outer_tick_radius = int((self.size-self.size/9) * 0.45)
         label = self.unit
         self.canvas.create_text(self.size/2,2*self.size/5, font=("Arial",int(self.size/20)),fill="white", text=label,angle=0)
-        label = 'PV3e'
+        label = ''
         self.canvas.create_text(self.size/2,3*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="light blue", text=label,angle=0)
         self.readout = self.canvas.create_text(self.size/2,4*self.size/5, font=("Arial",int(self.size/18),'bold'),fill="white", text='')
         inner_tick_radius2 = int((self.size-self.size/9) * 0.48)
