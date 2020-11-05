@@ -1,5 +1,5 @@
 # @Date:   2020-10-15T19:31:27+02:00
-# @Last modified time: 2020-11-04T21:48:09+01:00
+# @Last modified time: 2020-11-05T01:36:32+01:00
 
 from tkinter import *
 import os
@@ -105,4 +105,4 @@ class Dashboard:
 
     def draw_chrono(self):
         chrono = Chrono(self.time_frame)
-        chrono.pack()
+        chrono.grid(column=2, row=0)
