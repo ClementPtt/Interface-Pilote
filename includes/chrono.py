@@ -14,25 +14,27 @@ class Chrono(LabelFrame): # use Frame if we dont need LabelFrame
         self.titre = Label(self, text="Chronometre")
         self.titre.pack()
 
-        self.play_pause_bin = 0
-        self.play_pause_button = Button(self, text="Play", command=self.play_pause)
-        self.play_pause_button.pack()
+        self.play_reset_bin = 0
+        self.play_reset_button = Button(self, text="Play", command=self.play_reset)
+        self.play_reset_button.pack()
 
-    def play_pause(self):
-        if self.play_pause_bin == 0:
+    def play_reset(self):
+        if self.play_reset_bin == 0:
             self.start = time.time()
-            self.play_pause_button.config(text="Pause")
-            self.play_pause_bin = 1
+            self.play_reset_button.config(text="Reset")
+            self.play_reset_bin = 1
             self.cunt()
-        else:
-            self.play_pause_button.config(text="Play")
-            self.play_pause_bin = 0
+        elif self.play_reset_bin == 1:
+            self.play_reset_button.config(text="Play")
+            self.play_reset_bin = 0
             self.cunt()
+
+
 
     def cunt(self):
-        if self.play_pause_bin == 1:
+        if self.play_reset_bin == 1:
             self.compteur = int(time.time() - self.start)
-            self.chronometre.config(text=self.compteur)
-            self.chronometre.after(1000, self.cunt)
+            self.titre.config(text=self.compteur)
+            self.titre.after(1000, self.cunt)
         else:
-            self.chronometre.config(text=self.compteur)
+            self.titre.config(text='0')
