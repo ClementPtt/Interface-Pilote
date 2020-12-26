@@ -1,12 +1,13 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-26T21:34:11+01:00
+# @Last modified time: 2020-12-26T22:02:00+01:00
 
 from tkinter import *
 import os
 from includes.gaugelib import *
 from includes.chrono import *
+import tkinter.font as font
 
 
 class Dashboard:
@@ -16,6 +17,7 @@ class Dashboard:
         # set windows dimensions adapted to the screen
         width_screen = self.master.winfo_screenwidth()-150
         height_screen = self.master.winfo_screenheight()-150
+        f_size = height_screen/100
         self.master.geometry(f"{width_screen+10}x{height_screen+13}")
         self.master.title("Interface Pilote")
         self.master.configure(bg="black", highlightbackground="black", highlightcolor="red", highlightthickness=5)
@@ -64,9 +66,22 @@ class Dashboard:
         self.ICE_frame.grid(column=3, row=2, columnspan=3)
         self.ICE_frame.configure(bg="black", fg="white")
 
-        self.breaks_mode_frame = LabelFrame(self.master, text="BREAKS_MODE", bd=3, width=width_screen/6, height=height_screen/4)
+
+
+        self.breaks_mode_frame = Frame(self.master, bd=3, width=width_screen/6, height=height_screen/4)
         self.breaks_mode_frame.grid(column=0, row=3)
-        self.breaks_mode_frame.configure(bg="black", fg="white")
+        self.breaks_mode_frame.configure(bg="black")
+
+        self.breaks_label = Label(self.breaks_mode_frame, text="BRK")
+        self.breaks_label.pack()
+        self.breaks_label.configure(bg="black", fg="white", font=("Helvetica", 44))
+
+        self.mode_label = Label(self.breaks_mode_frame, text="HY")
+        self.mode_label.pack(anchor="sw")
+        self.mode_label.configure(bg="red", fg="white", font=("Helvetica", 44))
+
+
+
 
         self.time_frame = LabelFrame(self.master, text="TIME", bd=3, width=3*width_screen/6, height=height_screen/4)
         self.time_frame.grid(column=1, row=3, columnspan=3)
