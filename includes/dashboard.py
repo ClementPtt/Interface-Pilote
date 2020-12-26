@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-26T20:13:44+01:00
+# @Last modified time: 2020-12-26T21:34:11+01:00
 
 from tkinter import *
 import os
@@ -16,9 +16,9 @@ class Dashboard:
         # set windows dimensions adapted to the screen
         width_screen = self.master.winfo_screenwidth()-150
         height_screen = self.master.winfo_screenheight()-150
-        self.master.geometry(f"{width_screen}x{height_screen}")
+        self.master.geometry(f"{width_screen+10}x{height_screen+13}")
         self.master.title("Interface Pilote")
-        self.master.configure(background="black")
+        self.master.configure(bg="black", highlightbackground="black", highlightcolor="red", highlightthickness=5)
         # get current working directory
         cwd = os.getcwd()
         # Add full path of the .ico image
