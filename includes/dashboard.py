@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-27T12:01:29+01:00
+# @Last modified time: 2020-12-27T12:24:33+01:00
 
 from tkinter import *
 import os
@@ -75,12 +75,13 @@ class Dashboard:
         self.regen_frame.grid(column=0, row=2, columnspan=3)
         self.regen_frame.configure(bg="black", fg="white")
 
-        self.ICE_frame = LabelFrame(self.master, bd=3, width=3*width_screen/6-space*2, height=height_screen/4-space)
+        self.ICE_frame = Frame(self.master, width=3*width_screen/6-space*2, height=height_screen/4-space)
         self.ICE_frame.grid(column=3, row=2, columnspan=3)
-        self.ICE_frame.configure(bg="black", fg="white")
         self.ICE_frame.grid_propagate(0)
+        self.ICE_frame.configure(bg="black", highlightbackground="red", highlightthickness=10)
+        # self.ICE_frame.rowconfigure(0, minsize=height_screen/4-30)
 
-        self.turn_ICE_frame = Frame(self.ICE_frame, width=width_screen/8, height=height_screen/4,)
+        self.turn_ICE_frame = Frame(self.ICE_frame, width=width_screen/8, height=height_screen/4)
         self.turn_ICE_frame.grid(column=0, row=0)
         self.turn_ICE_frame.pack_propagate(0)
 
