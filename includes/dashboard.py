@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-26T22:31:34+01:00
+# @Last modified time: 2020-12-27T10:08:37+01:00
 
 from tkinter import *
 import os
@@ -54,9 +54,23 @@ class Dashboard:
         self.deltas_frame.grid(column=1, row=1, columnspan=4)
         self.deltas_frame.configure(bg="black", fg="white")
 
-        self.fuel_frame = LabelFrame(self.master, text="FUEL", bd=3, width=width_screen/6, height=height_screen/4)
+
+
+        self.fuel_frame = Frame(self.master, width=width_screen/6, height=height_screen/4)
+        # self.fuel_frame = LabelFrame(self.master, text="FUEL", width=width_screen/6, height=height_screen/4)
         self.fuel_frame.grid(column=5, row=1)
-        self.fuel_frame.configure(bg="black", fg="white")
+        self.fuel_frame.configure(bg="red")
+        self.fuel_frame.pack_propagate(0)
+
+        self.fuel_label = Label(self.fuel_frame, text="FUEL")
+        self.fuel_label.pack()
+        self.fuel_label.configure(bg="red", fg="white", font=("Helvetica", 44))
+
+        self.state_label = Label(self.fuel_frame, text="ON")
+        self.state_label.pack()
+        self.state_label.configure(bg="red", fg="yellow", font=("Helvetica", 44))
+
+
 
         self.regen_frame = LabelFrame(self.master, text="REGEN", bd=3, width=3*width_screen/6, height=height_screen/4)
         self.regen_frame.grid(column=0, row=2, columnspan=3)
@@ -70,14 +84,15 @@ class Dashboard:
 
         self.breaks_mode_frame = Frame(self.master, width=width_screen/6, height=height_screen/4)
         self.breaks_mode_frame.grid(column=0, row=3)
+        self.breaks_mode_frame.pack_propagate(0)
         self.breaks_mode_frame.configure(bg="black")
 
         self.breaks_label = Label(self.breaks_mode_frame, text="BRK")
-        self.breaks_label.pack()
+        self.breaks_label.pack(anchor="middle")
         self.breaks_label.configure(bg="black", fg="white", font=("Helvetica", 44))
 
         self.mode_label = Label(self.breaks_mode_frame, text="HY")
-        self.mode_label.pack(anchor="sw")
+        self.mode_label.pack(anchor="sw", side=BOTTOM)
         self.mode_label.configure(bg="red", fg="white", font=("Helvetica", 44))
 
 
