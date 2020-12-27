@@ -76,7 +76,7 @@ class Dashboard:
         self.regen_frame.grid(column=0, row=2, columnspan=3)
         self.regen_frame.configure(bg="black", fg="white")
 
-        self.ICE_frame = LabelFrame(self.master, text="ICE", bd=3, width=3*width_screen/6, height=height_screen/4)
+        self.ICE_frame = LabelFrame(self.master, bd=3, width=3*width_screen/6, height=height_screen/4)
         self.ICE_frame.grid(column=3, row=2, columnspan=3)
         self.ICE_frame.configure(bg="black", fg="white")
         self.ICE_frame.grid_propagate(0)
@@ -93,18 +93,18 @@ class Dashboard:
         self.num_turn_ICE_label.configure(font=("Helvetica", 48))
         self.num_turn_ICE_label.pack()
 
-        self.speed_ICE_frame = Frame(self.ICE_frame, width=7*width_screen/8, height=height_screen/4, background="red")
+        self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8, height=height_screen/4, background="black")
         self.speed_ICE_frame.grid(column=1, row=0)
-        self.speed_ICE_frame.grid_propagate(0)
+        self.speed_ICE_frame.pack_propagate(0)
 
 
         self.speed_ICE_label = Label(self.speed_ICE_frame, text='ICE')
-        self.speed_ICE_label.configure(font=("Helvetica", 30), bg='blue', fg="white")
-        self.speed_ICE_label.grid(column=0, row=0)
+        self.speed_ICE_label.configure(font=("Helvetica", 30), bg='black', fg="white")
+        self.speed_ICE_label.pack(anchor='nw')
 
         self.num_speed_ICE_label = Label(self.speed_ICE_frame, text='10 Km/h')
-        self.num_speed_ICE_label.configure(font=("Helvetica", 30), bg='blue', fg="white")
-        self.num_speed_ICE_label.grid(column=0, row=2, rowspan=2)
+        self.num_speed_ICE_label.configure(font=("Helvetica", 25), bg='black', fg="white")
+        self.num_speed_ICE_label.pack(anchor='s')
 
 
 
