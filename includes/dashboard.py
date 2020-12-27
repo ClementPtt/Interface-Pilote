@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-27T11:41:45+01:00
+# @Last modified time: 2020-12-27T12:01:29+01:00
 
 from tkinter import *
 import os
@@ -38,15 +38,15 @@ class Dashboard:
         self.master.rowconfigure(3, minsize=height_screen/4)
 
 
-        self.lap_frame = LabelFrame(self.master, text="LAP", bd=3, width=width_screen/6, height=height_screen/4)
+        self.lap_frame = LabelFrame(self.master, text="LAP", bd=3, width=width_screen/6-space, height=height_screen/4-space)
         self.lap_frame.grid(column=0, row=0)
         self.lap_frame.configure(bg="black", fg="white")
 
-        self.SOC_frame = LabelFrame(self.master, text="SOC", bd=3, width=5*width_screen/6, height=height_screen/4)
+        self.SOC_frame = LabelFrame(self.master, text="SOC", bd=3, width=5*width_screen/6, height=height_screen/4-space)
         self.SOC_frame.grid(column=1, row=0, columnspan=5)
         self.SOC_frame.configure(bg="black", fg="white")
 
-        self.others_frame = LabelFrame(self.master, text="EMPTY", bd=3, width=width_screen/6, height=height_screen/4)
+        self.others_frame = LabelFrame(self.master, text="EMPTY", bd=3, width=width_screen/6-space, height=height_screen/4)
         self.others_frame.grid(column=0, row=1)
         self.others_frame.configure(bg="black", fg="white")
 
@@ -58,24 +58,24 @@ class Dashboard:
 
         self.fuel_frame = Frame(self.master, width=width_screen/6-space, height=height_screen/4-space)
         self.fuel_frame.grid(column=5, row=1)
-        self.fuel_frame.configure(bg="black", highlightbackground="white", highlightthickness=3)
+        self.fuel_frame.configure(bg="black", highlightbackground="white", highlightthickness=2)
         self.fuel_frame.pack_propagate(0)
 
         self.fuel_label = Label(self.fuel_frame, text="FUEL")
         self.fuel_label.pack()
-        self.fuel_label.configure(bg=self.fuel_frame["bg"], fg="white", font=("Helvetica", 44))
+        self.fuel_label.configure(bg=self.fuel_frame["bg"], fg="white", font=("Helvetica", 26))
 
         self.state_label = Label(self.fuel_frame, text="ON")
-        self.state_label.pack()
-        self.state_label.configure(bg=self.fuel_frame["bg"], fg="yellow", font=("Helvetica", 44))
+        self.state_label.pack(expand=True)
+        self.state_label.configure(bg=self.fuel_frame["bg"], fg="yellow", font=("Helvetica", 50))
 
 
 
-        self.regen_frame = LabelFrame(self.master, text="REGEN", bd=3, width=3*width_screen/6-space, height=height_screen/4-space)
+        self.regen_frame = LabelFrame(self.master, text="REGEN", bd=3, width=3*width_screen/6-space*2, height=height_screen/4-space)
         self.regen_frame.grid(column=0, row=2, columnspan=3)
         self.regen_frame.configure(bg="black", fg="white")
 
-        self.ICE_frame = LabelFrame(self.master, bd=3, width=3*width_screen/6-space, height=height_screen/4-space)
+        self.ICE_frame = LabelFrame(self.master, bd=3, width=3*width_screen/6-space*2, height=height_screen/4-space)
         self.ICE_frame.grid(column=3, row=2, columnspan=3)
         self.ICE_frame.configure(bg="black", fg="white")
         self.ICE_frame.grid_propagate(0)
@@ -85,11 +85,11 @@ class Dashboard:
         self.turn_ICE_frame.pack_propagate(0)
 
         self.turn_ICE_label = Label(self.turn_ICE_frame, text='TURN')
-        self.turn_ICE_label.configure(font=("Helvetica", 40))
+        self.turn_ICE_label.configure(font=("Helvetica", 35))
         self.turn_ICE_label.pack()
 
         self.num_turn_ICE_label = Label(self.turn_ICE_frame, text='2')
-        self.num_turn_ICE_label.configure(font=("Helvetica", 48))
+        self.num_turn_ICE_label.configure(font=("Helvetica", 80))
         self.num_turn_ICE_label.pack()
 
         self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8, height=height_screen/4, background="black")
@@ -102,8 +102,8 @@ class Dashboard:
         self.speed_ICE_label.pack(anchor='nw')
 
         self.num_speed_ICE_label = Label(self.speed_ICE_frame, text='10 Km/h')
-        self.num_speed_ICE_label.configure(font=("Helvetica", 25), bg='black', fg="white")
-        self.num_speed_ICE_label.pack(anchor='s')
+        self.num_speed_ICE_label.configure(font=("Helvetica", 50), bg='black', fg="yellow")
+        self.num_speed_ICE_label.pack(expand=True)
 
 
 
@@ -114,11 +114,11 @@ class Dashboard:
 
         self.breaks_label = Label(self.breaks_mode_frame, text="BRK")
         self.breaks_label.pack(expand=True)
-        self.breaks_label.configure(bg="red", fg="white", font=("Helvetica", 44))
+        self.breaks_label.configure(bg="red", fg="white", font=("Helvetica", 30))
 
         self.mode_label = Label(self.breaks_mode_frame, text="HY")
         self.mode_label.pack(anchor="sw", side=BOTTOM)
-        self.mode_label.configure(bg="red", fg="white", font=("Helvetica", 44))
+        self.mode_label.configure(bg="red", fg="white", font=("Helvetica", 45))
 
 
 
