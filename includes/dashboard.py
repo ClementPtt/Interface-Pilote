@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-27T10:58:17+01:00
+# @Last modified time: 2020-12-27T11:41:45+01:00
 
 from tkinter import *
 import os
@@ -17,25 +17,25 @@ class Dashboard:
         # set windows dimensions adapted to the screen
         width_screen = self.master.winfo_screenwidth()-150
         height_screen = self.master.winfo_screenheight()-150
-        f_size = height_screen/100
+        space = width_screen/40
         self.master.geometry(f"{width_screen+20}x{height_screen+22}")
         self.master.title("Interface Pilote")
-        self.master.configure(highlightbackground="red", highlightcolor="red", highlightthickness=10, padx=0, pady=0, borderwidth=0, relief="flat")
+        self.master.configure(bg="blue", highlightbackground="red", highlightcolor="red", highlightthickness=10, padx=0, pady=0, borderwidth=0, relief="flat")
         # get current working directory
         cwd = os.getcwd()
         # Add full path of the .ico image
         self.master.iconbitmap(cwd + "/images/estaca.ico")
 
 
-        # self.master.columnconfigure(0, pad=width_screen/4)
-        # self.master.columnconfigure(1, pad=width_screen/4)
-        # self.master.columnconfigure(2, pad=width_screen/4)
-        # self.master.columnconfigure(3, pad=width_screen/4)
-        #
-        # self.master.rowconfigure(0, pad=height_screen/4)
-        # self.master.rowconfigure(1, pad=height_screen/4)
-        # self.master.rowconfigure(2, pad=height_screen/4)
-        # self.master.rowconfigure(3, pad=height_screen/4)
+        self.master.columnconfigure(0, minsize=width_screen/6)
+        self.master.columnconfigure(1, minsize=width_screen/6)
+        self.master.columnconfigure(2, minsize=width_screen/6)
+        self.master.columnconfigure(3, minsize=width_screen/6)
+
+        self.master.rowconfigure(0, minsize=height_screen/4)
+        self.master.rowconfigure(1, minsize=height_screen/4)
+        self.master.rowconfigure(2, minsize=height_screen/4)
+        self.master.rowconfigure(3, minsize=height_screen/4)
 
 
         self.lap_frame = LabelFrame(self.master, text="LAP", bd=3, width=width_screen/6, height=height_screen/4)
@@ -56,27 +56,26 @@ class Dashboard:
 
 
 
-        self.fuel_frame = Frame(self.master, width=width_screen/6, height=height_screen/4)
-        # self.fuel_frame = LabelFrame(self.master, text="FUEL", width=width_screen/6, height=height_screen/4)
+        self.fuel_frame = Frame(self.master, width=width_screen/6-space, height=height_screen/4-space)
         self.fuel_frame.grid(column=5, row=1)
-        self.fuel_frame.configure(bg="red")
+        self.fuel_frame.configure(bg="black", highlightbackground="white", highlightthickness=3)
         self.fuel_frame.pack_propagate(0)
 
         self.fuel_label = Label(self.fuel_frame, text="FUEL")
         self.fuel_label.pack()
-        self.fuel_label.configure(bg="red", fg="white", font=("Helvetica", 44))
+        self.fuel_label.configure(bg=self.fuel_frame["bg"], fg="white", font=("Helvetica", 44))
 
         self.state_label = Label(self.fuel_frame, text="ON")
         self.state_label.pack()
-        self.state_label.configure(bg="red", fg="yellow", font=("Helvetica", 44))
+        self.state_label.configure(bg=self.fuel_frame["bg"], fg="yellow", font=("Helvetica", 44))
 
 
 
-        self.regen_frame = LabelFrame(self.master, text="REGEN", bd=3, width=3*width_screen/6, height=height_screen/4)
+        self.regen_frame = LabelFrame(self.master, text="REGEN", bd=3, width=3*width_screen/6-space, height=height_screen/4-space)
         self.regen_frame.grid(column=0, row=2, columnspan=3)
         self.regen_frame.configure(bg="black", fg="white")
 
-        self.ICE_frame = LabelFrame(self.master, bd=3, width=3*width_screen/6, height=height_screen/4)
+        self.ICE_frame = LabelFrame(self.master, bd=3, width=3*width_screen/6-space, height=height_screen/4-space)
         self.ICE_frame.grid(column=3, row=2, columnspan=3)
         self.ICE_frame.configure(bg="black", fg="white")
         self.ICE_frame.grid_propagate(0)
