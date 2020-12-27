@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-27T10:16:00+01:00
+# @Last modified time: 2020-12-27T10:22:53+01:00
 
 from tkinter import *
 import os
@@ -88,8 +88,8 @@ class Dashboard:
         self.breaks_mode_frame.configure(bg="black")
 
         self.breaks_label = Label(self.breaks_mode_frame, text="BRK")
-        self.breaks_label.pack(anchor="center", fill=Y)
-        self.breaks_label.configure(bg="black", fg="white", font=("Helvetica", 44))
+        self.breaks_label.place(x=width_screen/6/5, y=height_screen/6/5)
+        self.breaks_label.configure(bg="red", fg="white", font=("Helvetica", 44))
 
         self.mode_label = Label(self.breaks_mode_frame, text="HY")
         self.mode_label.pack(anchor="sw", side=BOTTOM)
