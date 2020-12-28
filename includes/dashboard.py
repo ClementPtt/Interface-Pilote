@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-28T17:41:43+01:00
+# @Last modified time: 2020-12-28T18:11:54+01:00
 
 from tkinter import *
 import os
@@ -52,11 +52,11 @@ class Dashboard:
 
         self.lap_label = Label(self.lap_frame, text="LAP")
         self.lap_label.pack()
-        self.lap_label.configure(bg=self.lap_frame["bg"], fg="white", font=("Helvetica", 26))
+        self.lap_label.configure(bg=self.lap_frame["bg"], fg="white", font=("Arial 26 bold"))
 
         self.num_lap_label = Label(self.lap_frame, text="8/11")
         self.num_lap_label.pack(expand=True)
-        self.num_lap_label.configure(bg=self.lap_frame["bg"], fg="yellow", font=("Helvetica", 50))
+        self.num_lap_label.configure(bg=self.lap_frame["bg"], fg="yellow", font=("Arial 50 bold"))
 
 
 
@@ -88,11 +88,11 @@ class Dashboard:
         self.liveD_frame.pack_propagate(0)
 
         self.liveD_label = Label(self.liveD_frame, text='LIVE DELTA')
-        self.liveD_label.configure(font=("Helvetica", 25), bg='white', fg='black')
+        self.liveD_label.configure(font=("Arial 25 bold"), bg='white', fg='black')
         self.liveD_label.pack()
 
         self.num_liveD_label = Label(self.liveD_frame, text='+2.5s')
-        self.num_liveD_label.configure(font=("Helvetica", 40), bg='white', fg='red')
+        self.num_liveD_label.configure(font=("Arial 40 bold"), bg='white', fg='red')
         self.num_liveD_label.pack(expand=True)
 
         self.raceD_frame = Frame(self.deltas_frame, width=width_screen*2/9-2-2*space/3,
@@ -101,11 +101,11 @@ class Dashboard:
         self.raceD_frame.pack_propagate(0)
 
         self.raceD_label = Label(self.raceD_frame, text='RACE DELTA')
-        self.raceD_label.configure(font=("Helvetica", 25), bg=self.deltas_frame["bg"], fg='white')
+        self.raceD_label.configure(font=("Arial 25 bold"), bg=self.deltas_frame["bg"], fg='white')
         self.raceD_label.pack()
 
         self.num_raceD_label = Label(self.raceD_frame, text='-18 s')
-        self.num_raceD_label.configure(font=("Helvetica", 40), bg=self.deltas_frame["bg"], fg='green')
+        self.num_raceD_label.configure(font=("Arial 40 bold"), bg=self.deltas_frame["bg"], fg='green')
         self.num_raceD_label.pack(expand=True)
 
         self.nD_frame = Frame(self.deltas_frame, width=width_screen*2/9-2-2*space/3,
@@ -114,11 +114,11 @@ class Dashboard:
         self.nD_frame.pack_propagate(0)
 
         self.nD_label = Label(self.nD_frame, text='N-1 DELTA')
-        self.nD_label.configure(font=("Helvetica", 25), bg=self.deltas_frame["bg"], fg='white')
+        self.nD_label.configure(font=("Arial 25 bold"), bg=self.deltas_frame["bg"], fg='white')
         self.nD_label.pack()
 
         self.nD_label = Label(self.nD_frame, text='-3.8 s')
-        self.nD_label.configure(font=("Helvetica", 40), bg=self.deltas_frame["bg"], fg='green')
+        self.nD_label.configure(font=("Arial 40 bold"), bg=self.deltas_frame["bg"], fg='green')
         self.nD_label.pack(expand=True)
 
 
@@ -133,11 +133,11 @@ class Dashboard:
 
         self.fuel_label = Label(self.fuel_frame, text="FUEL")
         self.fuel_label.pack()
-        self.fuel_label.configure(bg=self.fuel_frame["bg"], fg="white", font=("Helvetica", 25))
+        self.fuel_label.configure(bg=self.fuel_frame["bg"], fg="white", font=("Arial 25 bold"))
 
         self.state_label = Label(self.fuel_frame, text="ON")
         self.state_label.pack(expand=True)
-        self.state_label.configure(bg=self.fuel_frame["bg"], fg="yellow", font=("Helvetica", 50))
+        self.state_label.configure(bg=self.fuel_frame["bg"], fg="yellow", font=("Arial 50 bold"))
 
 
 
@@ -151,11 +151,11 @@ class Dashboard:
         self.turn_regen_frame.pack_propagate(0)
 
         self.turn_regen_label = Label(self.turn_regen_frame, text='TURN')
-        self.turn_regen_label.configure(font=("Helvetica", 35), bg=self.turn_regen_frame["bg"])
+        self.turn_regen_label.configure(font=("Arial 35 bold"), bg=self.turn_regen_frame["bg"])
         self.turn_regen_label.pack()
 
         self.num_turn_regen_label = Label(self.turn_regen_frame, text='8')
-        self.num_turn_regen_label.configure(font=("Helvetica", 80), bg=self.turn_regen_frame["bg"])
+        self.num_turn_regen_label.configure(font=("Arial 80 bold"), bg=self.turn_regen_frame["bg"])
         self.num_turn_regen_label.pack(expand=True)
 
         self.speed_regen_frame = Frame(self.regen_frame, width=3*width_screen/8-space, height=height_screen/4-space, bg=self.regen_frame["bg"])
@@ -164,11 +164,11 @@ class Dashboard:
         self.speed_regen_frame.pack_propagate(0)
 
         self.speed_regen_label = Label(self.speed_regen_frame, text='REGEN')
-        self.speed_regen_label.configure(font=("Helvetica", 30), bg=self.speed_regen_frame["bg"], fg="white")
+        self.speed_regen_label.configure(font=("Arial 30 bold"), bg=self.speed_regen_frame["bg"], fg="white")
         self.speed_regen_label.pack(anchor='nw')
 
         self.num_speed_regen_label = Label(self.speed_regen_frame, text='85%')
-        self.num_speed_regen_label.configure(font=("Helvetica", 50), bg=self.speed_regen_frame["bg"], fg="yellow")
+        self.num_speed_regen_label.configure(font=("Arial 50 bold"), bg=self.speed_regen_frame["bg"], fg="yellow")
         self.num_speed_regen_label.pack(expand=True)
 
 
@@ -183,11 +183,11 @@ class Dashboard:
         self.turn_ICE_frame.pack_propagate(0)
 
         self.turn_ICE_label = Label(self.turn_ICE_frame, text='TURN')
-        self.turn_ICE_label.configure(font=("Helvetica", 35), bg=self.turn_ICE_frame["bg"])
+        self.turn_ICE_label.configure(font=("Arial 35 bold"), bg=self.turn_ICE_frame["bg"])
         self.turn_ICE_label.pack()
 
         self.num_turn_ICE_label = Label(self.turn_ICE_frame, text='2')
-        self.num_turn_ICE_label.configure(font=("Helvetica", 80), bg=self.turn_ICE_frame["bg"])
+        self.num_turn_ICE_label.configure(font=("Arial 80 bold"), bg=self.turn_ICE_frame["bg"])
         self.num_turn_ICE_label.pack(expand=True)
 
         self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8-space, height=height_screen/4-space,bg=self.ICE_frame["bg"])
@@ -197,18 +197,18 @@ class Dashboard:
 
 
         self.speed_ICE_label = Label(self.speed_ICE_frame, text='ICE')
-        self.speed_ICE_label.configure(font=("Helvetica", 30), bg=self.speed_ICE_frame["bg"], fg="white")
+        self.speed_ICE_label.configure(font=("Arial 30 bold"), bg=self.speed_ICE_frame["bg"], fg="white")
         self.speed_ICE_label.pack(anchor='nw')
 
         self.num_speed_ICE_label = Label(self.speed_ICE_frame, text='10 Km/h')
-        self.num_speed_ICE_label.configure(font=("Helvetica", 50), bg=self.speed_ICE_frame["bg"], fg="yellow")
+        self.num_speed_ICE_label.configure(font=("Arial 50 bold"), bg=self.speed_ICE_frame["bg"], fg="yellow")
         self.num_speed_ICE_label.pack(expand=True)
+
 
 
         self.spacer_frame = Frame(self.master, width=width_screen, height=2)
         self.spacer_frame.grid(column=0, row=3, columnspan=6)
         self.spacer_frame.configure(bg="white")
-
 
 
 
@@ -219,11 +219,11 @@ class Dashboard:
 
         self.breaks_label = Label(self.breaks_mode_frame, text="BRK")
         self.breaks_label.pack(expand=True)
-        self.breaks_label.configure(bg="red", fg="white", font=("Helvetica", 30))
+        self.breaks_label.configure(bg="red", fg="white", font=("Arial 30 bold"))
 
         self.mode_label = Label(self.breaks_mode_frame, text="HY")
         self.mode_label.pack(anchor="sw", side=BOTTOM)
-        self.mode_label.configure(bg="red", fg="white", font=("Helvetica", 45))
+        self.mode_label.configure(bg="red", fg="white", font=("Arial 45 bold"))
 
 
 
@@ -235,11 +235,11 @@ class Dashboard:
 
         self.time_label = Label(self.time_frame, text="TIME")
         self.time_label.pack(anchor='nw')
-        self.time_label.configure(bg=self.time_frame["bg"], fg="white", font=("Helvetica", 26))
+        self.time_label.configure(bg=self.time_frame["bg"], fg="white", font=("Arial 25 bold"))
 
         self.num_time_label = Label(self.time_frame, text="00:02:11")
         self.num_time_label.pack(expand=True, anchor='nw')
-        self.num_time_label.configure(bg=self.time_frame["bg"], fg="yellow", font=("Helvetica", 90))
+        self.num_time_label.configure(bg=self.time_frame["bg"], fg="yellow", font=("Arial 90 bold"))
 
 
 
@@ -250,8 +250,8 @@ class Dashboard:
 
         self.speed_label = Label(self.speed_frame, text="SPEED")
         self.speed_label.pack(anchor='nw')
-        self.speed_label.configure(bg=self.speed_frame["bg"], fg="white", font=("Helvetica", 26))
+        self.speed_label.configure(bg=self.speed_frame["bg"], fg="white", font=("Arial 25 bold"))
 
         self.num_speed_label = Label(self.speed_frame, text="24 km/h")
         self.num_speed_label.pack(expand=True, anchor='nw')
-        self.num_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Helvetica", 70))
+        self.num_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 70 bold"))
