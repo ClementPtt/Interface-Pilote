@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-28T16:51:05+01:00
+# @Last modified time: 2020-12-28T17:41:43+01:00
 
 from tkinter import *
 import os
@@ -38,7 +38,8 @@ class Dashboard:
         self.master.rowconfigure(0, minsize=height_screen/4)
         self.master.rowconfigure(1, minsize=height_screen/4)
         self.master.rowconfigure(2, minsize=height_screen/4)
-        self.master.rowconfigure(3, minsize=height_screen/4)
+        self.master.rowconfigure(3, minsize=2)
+        self.master.rowconfigure(4, minsize=height_screen/4-2)
 
 
 
@@ -204,9 +205,15 @@ class Dashboard:
         self.num_speed_ICE_label.pack(expand=True)
 
 
+        self.spacer_frame = Frame(self.master, width=width_screen, height=2)
+        self.spacer_frame.grid(column=0, row=3, columnspan=6)
+        self.spacer_frame.configure(bg="white")
 
-        self.breaks_mode_frame = Frame(self.master, width=width_screen/6, height=height_screen/4)
-        self.breaks_mode_frame.grid(column=0, row=3)
+
+
+
+        self.breaks_mode_frame = Frame(self.master, width=width_screen/6, height=height_screen/4-2)
+        self.breaks_mode_frame.grid(column=0, row=4)
         self.breaks_mode_frame.pack_propagate(0)
         self.breaks_mode_frame.configure(bg="black")
 
@@ -222,7 +229,7 @@ class Dashboard:
 
 
         self.time_frame = Frame(self.master, width=3*width_screen/6, height=height_screen/4-space)
-        self.time_frame.grid(column=1, row=3, columnspan=3)
+        self.time_frame.grid(column=1, row=4, columnspan=3)
         self.time_frame.configure(bg="black")
         self.time_frame.pack_propagate(0)
 
@@ -237,7 +244,7 @@ class Dashboard:
 
 
         self.speed_frame = Frame(self.master, width=2*width_screen/6, height=height_screen/4-space)
-        self.speed_frame.grid(column=4, row=3, columnspan=2)
+        self.speed_frame.grid(column=4, row=4, columnspan=2)
         self.speed_frame.configure(bg="black")
         self.speed_frame.pack_propagate(0)
 
