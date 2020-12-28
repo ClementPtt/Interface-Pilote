@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-27T12:24:33+01:00
+# @Last modified time: 2020-12-28T10:45:13+01:00
 
 from tkinter import *
 import os
@@ -42,21 +42,21 @@ class Dashboard:
         self.lap_frame.grid(column=0, row=0)
         self.lap_frame.configure(bg="black", fg="white")
 
-        self.SOC_frame = LabelFrame(self.master, text="SOC", bd=3, width=5*width_screen/6, height=height_screen/4-space)
+        self.SOC_frame = LabelFrame(self.master, text="SOC", bd=3, width=5*width_screen/6-space, height=height_screen/4-space)
         self.SOC_frame.grid(column=1, row=0, columnspan=5)
         self.SOC_frame.configure(bg="black", fg="white")
 
-        self.others_frame = LabelFrame(self.master, text="EMPTY", bd=3, width=width_screen/6-space, height=height_screen/4)
+        self.others_frame = LabelFrame(self.master, text="EMPTY", bd=3, width=width_screen/6-space, height=height_screen/4-space)
         self.others_frame.grid(column=0, row=1)
         self.others_frame.configure(bg="black", fg="white")
 
-        self.deltas_frame = LabelFrame(self.master, text="DELTA", bd=3, width=4*width_screen/6, height=height_screen/4)
+        self.deltas_frame = LabelFrame(self.master, text="DELTA", bd=3, width=4*width_screen/6, height=height_screen/4-space)
         self.deltas_frame.grid(column=1, row=1, columnspan=4)
         self.deltas_frame.configure(bg="black", fg="white")
 
 
 
-        self.fuel_frame = Frame(self.master, width=width_screen/6-space/2, height=height_screen/4-space/2)
+        self.fuel_frame = Frame(self.master, width=width_screen/6-space, height=height_screen/4-space)
         self.fuel_frame.grid(column=5, row=1)
         self.fuel_frame.configure(bg="black", highlightbackground="white", highlightthickness=2)
         self.fuel_frame.pack_propagate(0)
@@ -71,14 +71,13 @@ class Dashboard:
 
 
 
-        self.regen_frame = Frame(self.master, width=3*width_screen/6 -space*1.5, height=height_screen/4-space/2)
+        self.regen_frame = Frame(self.master, width=3*width_screen/6-space, height=height_screen/4-space)
         self.regen_frame.grid(column=0, row=2, columnspan=3)
         self.regen_frame.configure(bg="black")
         self.regen_frame.grid_propagate(0)
         self.regen_frame.configure(bg='black')
 
-        self.turn_regen_frame = Frame(self.regen_frame, width=width_screen / 8, height=height_screen / 4 - space / 2,
-                                    bg='white')
+        self.turn_regen_frame = Frame(self.regen_frame, width=width_screen/8-space/2, height=height_screen/4-space, bg='white')
         self.turn_regen_frame.grid(column=0, row=0)
         self.turn_regen_frame.pack_propagate(0)
 
@@ -90,8 +89,7 @@ class Dashboard:
         self.num_turn_regen_label.configure(font=("Helvetica", 80), bg=self.turn_regen_frame["bg"])
         self.num_turn_regen_label.pack(expand=True)
 
-        self.speed_regen_frame = Frame(self.regen_frame, width=3 * width_screen / 8-space*1.5,
-                                     height=height_screen / 4 - space / 2, bg=self.regen_frame["bg"])
+        self.speed_regen_frame = Frame(self.regen_frame, width=3*width_screen/8-space/2, height=height_screen/4-space, bg=self.regen_frame["bg"])
         self.speed_regen_frame.grid(column=1, row=0)
         self.speed_regen_frame.configure(highlightbackground="white", highlightthickness=2)
         self.speed_regen_frame.pack_propagate(0)
@@ -106,12 +104,12 @@ class Dashboard:
 
 
 
-        self.ICE_frame = Frame(self.master, width=3*width_screen/6, height=height_screen/4-space/2, bg='black')
+        self.ICE_frame = Frame(self.master, width=3*width_screen/6-space, height=height_screen/4-space, bg='black')
         self.ICE_frame.grid(column=3, row=2, columnspan=3)
         self.ICE_frame.grid_propagate(0)
         # self.ICE_frame.rowconfigure(0, minsize=height_screen/4-30)
 
-        self.turn_ICE_frame = Frame(self.ICE_frame, width=width_screen/8, height=height_screen/4-space/2, bg='white')
+        self.turn_ICE_frame = Frame(self.ICE_frame, width=width_screen/8-space/2, height=height_screen/4-space, bg='white')
         self.turn_ICE_frame.grid(column=0, row=0)
         self.turn_ICE_frame.pack_propagate(0)
 
@@ -123,7 +121,7 @@ class Dashboard:
         self.num_turn_ICE_label.configure(font=("Helvetica", 80), bg=self.turn_ICE_frame["bg"])
         self.num_turn_ICE_label.pack(expand=True)
 
-        self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8-space, height=height_screen/4-space/2,bg=self.ICE_frame["bg"])
+        self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8-space/2, height=height_screen/4-space,bg=self.ICE_frame["bg"])
         self.speed_ICE_frame.grid(column=1, row=0)
         self.speed_ICE_frame.configure(highlightbackground="white", highlightthickness=2)
         self.speed_ICE_frame.pack_propagate(0)
@@ -159,6 +157,6 @@ class Dashboard:
         self.time_frame.grid(column=1, row=3, columnspan=3)
         self.time_frame.configure(bg="black", fg="white")
 
-        self.speed_frame = LabelFrame(self.master, text="SPEED", bd=3, width=2*width_screen/6-space/2, height=height_screen/4-space/2)
+        self.speed_frame = LabelFrame(self.master, text="SPEED", bd=3, width=2*width_screen/6-space, height=height_screen/4-space)
         self.speed_frame.grid(column=4, row=3, columnspan=2)
         self.speed_frame.configure(bg="black", fg="white")
