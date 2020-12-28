@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-28T10:45:13+01:00
+# @Last modified time: 2020-12-28T16:13:08+01:00
 
 from tkinter import *
 import os
@@ -38,6 +38,9 @@ class Dashboard:
         self.master.rowconfigure(3, minsize=height_screen/4)
 
 
+
+
+
         self.lap_frame = Frame(self.master, width=width_screen/6-space, height=height_screen/4-space)
         self.lap_frame.grid(column=0, row=0)
         self.lap_frame.configure(bg="black", highlightbackground="white", highlightthickness=2)
@@ -51,6 +54,10 @@ class Dashboard:
         self.num_lap_label.pack(expand=True)
         self.num_lap_label.configure(bg=self.lap_frame["bg"], fg="yellow", font=("Helvetica", 50))
 
+
+
+
+
         self.SOC_frame = LabelFrame(self.master, text="SOC", bd=3, width=5*width_screen/6-space, height=height_screen/4-space)
         self.SOC_frame.grid(column=1, row=0, columnspan=5)
         self.SOC_frame.configure(bg="black", fg="white")
@@ -62,49 +69,52 @@ class Dashboard:
 
 
 
-        self.deltas_frame = Frame(self.master, width=4*width_screen/6, height=height_screen/4-space)
+        self.deltas_frame = Frame(self.master, width=4*width_screen/6-space, height=height_screen/4-space)
         self.deltas_frame.grid(column=1, row=1, columnspan=4)
         self.deltas_frame.configure(bg="black", highlightbackground="white", highlightthickness=2)
         self.deltas_frame.grid_propagate(0)
 
-        self.liveD_frame = Frame(self.deltas_frame, width=width_screen*2 / 9 - space / 2,
-                                      height=height_screen / 4 - space, bg='white')
+        self.liveD_frame = Frame(self.deltas_frame, width=width_screen*2/9-space/3-2,
+        height=height_screen/4-space-4, bg='white')
         self.liveD_frame.grid(column=1, row=0)
         self.liveD_frame.pack_propagate(0)
 
         self.liveD_label = Label(self.liveD_frame, text='LIVE DELTA')
-        self.liveD_label.configure(font=("Helvetica", 25), bg='white', foreground='black')
+        self.liveD_label.configure(font=("Helvetica", 25), bg='white', fg='black')
         self.liveD_label.pack()
 
         self.num_liveD_label = Label(self.liveD_frame, text='+2.5s')
-        self.num_liveD_label.configure(font=("Helvetica", 40), bg='white', foreground='red')
+        self.num_liveD_label.configure(font=("Helvetica", 40), bg='white', fg='red')
         self.num_liveD_label.pack(expand=True)
 
-        self.raceD_frame = Frame(self.deltas_frame, width=width_screen * 2 / 9 - space / 2,
-                                 height=height_screen / 4 - space, bg='black')
+        self.raceD_frame = Frame(self.deltas_frame, width=width_screen*2/9-space/3-2,
+        height=height_screen/4-space-4, bg='black')
         self.raceD_frame.grid(column=0, row=0)
         self.raceD_frame.pack_propagate(0)
 
         self.raceD_label = Label(self.raceD_frame, text='RACE DELTA')
-        self.raceD_label.configure(font=("Helvetica", 25), bg=self.deltas_frame["bg"], foreground='white')
+        self.raceD_label.configure(font=("Helvetica", 25), bg=self.deltas_frame["bg"], fg='white')
         self.raceD_label.pack()
 
         self.num_raceD_label = Label(self.raceD_frame, text='-18 s')
-        self.num_raceD_label.configure(font=("Helvetica", 40), bg=self.deltas_frame["bg"], foreground='green')
+        self.num_raceD_label.configure(font=("Helvetica", 40), bg=self.deltas_frame["bg"], fg='green')
         self.num_raceD_label.pack(expand=True)
 
-        self.nD_frame = Frame(self.deltas_frame, width=width_screen * 2 / 9 - space / 2,
-                                 height=height_screen / 4 - space, bg='black')
+        self.nD_frame = Frame(self.deltas_frame, width=width_screen*2/9-space/3-2,
+        height=height_screen/4-space-4, bg='black')
         self.nD_frame.grid(column=2, row=0)
         self.nD_frame.pack_propagate(0)
 
         self.nD_label = Label(self.nD_frame, text='N-1 DELTA')
-        self.nD_label.configure(font=("Helvetica", 25), bg=self.deltas_frame["bg"], foreground='white')
+        self.nD_label.configure(font=("Helvetica", 25), bg=self.deltas_frame["bg"], fg='white')
         self.nD_label.pack()
 
         self.nD_label = Label(self.nD_frame, text='-3.8 s')
-        self.nD_label.configure(font=("Helvetica", 40), bg=self.deltas_frame["bg"], foreground='green')
+        self.nD_label.configure(font=("Helvetica", 40), bg=self.deltas_frame["bg"], fg='green')
         self.nD_label.pack(expand=True)
+
+
+
 
 
 
