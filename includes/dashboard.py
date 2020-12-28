@@ -56,7 +56,7 @@ class Dashboard:
 
 
 
-        self.fuel_frame = Frame(self.master, width=width_screen/6-space, height=height_screen/4-space)
+        self.fuel_frame = Frame(self.master, width=width_screen/6-space/2, height=height_screen/4-space/2)
         self.fuel_frame.grid(column=5, row=1)
         self.fuel_frame.configure(bg="black", highlightbackground="white", highlightthickness=2)
         self.fuel_frame.pack_propagate(0)
@@ -71,14 +71,44 @@ class Dashboard:
 
 
 
-        self.regen_frame = LabelFrame(self.master, text="REGEN", bd=3, width=3*width_screen/6-space*2, height=height_screen/4-space)
+        self.regen_frame = Frame(self.master, width=3*width_screen/6 -space*1.5, height=height_screen/4-space/2)
         self.regen_frame.grid(column=0, row=2, columnspan=3)
-        self.regen_frame.configure(bg="black", fg="white")
+        self.regen_frame.configure(bg="black")
+        self.regen_frame.grid_propagate(0)
+        self.regen_frame.configure(bg='black')
+
+        self.turn_regen_frame = Frame(self.regen_frame, width=width_screen / 8, height=height_screen / 4 - space / 2,
+                                    bg='white')
+        self.turn_regen_frame.grid(column=0, row=0)
+        self.turn_regen_frame.pack_propagate(0)
+
+        self.turn_regen_label = Label(self.turn_regen_frame, text='TURN')
+        self.turn_regen_label.configure(font=("Helvetica", 35), bg=self.turn_regen_frame["bg"])
+        self.turn_regen_label.pack()
+
+        self.num_turn_regen_label = Label(self.turn_regen_frame, text='8')
+        self.num_turn_regen_label.configure(font=("Helvetica", 80), bg=self.turn_regen_frame["bg"])
+        self.num_turn_regen_label.pack(expand=True)
+
+        self.speed_regen_frame = Frame(self.regen_frame, width=3 * width_screen / 8-space*1.5,
+                                     height=height_screen / 4 - space / 2, bg=self.regen_frame["bg"])
+        self.speed_regen_frame.grid(column=1, row=0)
+        self.speed_regen_frame.configure(highlightbackground="white", highlightthickness=2)
+        self.speed_regen_frame.pack_propagate(0)
+
+        self.speed_regen_label = Label(self.speed_regen_frame, text='REGEN')
+        self.speed_regen_label.configure(font=("Helvetica", 30), bg=self.speed_regen_frame["bg"], fg="white")
+        self.speed_regen_label.pack(anchor='nw')
+
+        self.num_speed_regen_label = Label(self.speed_regen_frame, text='85%')
+        self.num_speed_regen_label.configure(font=("Helvetica", 50), bg=self.speed_regen_frame["bg"], fg="yellow")
+        self.num_speed_regen_label.pack(expand=True)
+
+
 
         self.ICE_frame = Frame(self.master, width=3*width_screen/6, height=height_screen/4-space/2, bg='black')
         self.ICE_frame.grid(column=3, row=2, columnspan=3)
         self.ICE_frame.grid_propagate(0)
-        self.ICE_frame.configure(bg="black")
         # self.ICE_frame.rowconfigure(0, minsize=height_screen/4-30)
 
         self.turn_ICE_frame = Frame(self.ICE_frame, width=width_screen/8, height=height_screen/4-space/2, bg='white')
@@ -93,7 +123,7 @@ class Dashboard:
         self.num_turn_ICE_label.configure(font=("Helvetica", 80), bg=self.turn_ICE_frame["bg"])
         self.num_turn_ICE_label.pack(expand=True)
 
-        self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8, height=height_screen/4-space/2,bg=self.ICE_frame["bg"])
+        self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8-space, height=height_screen/4-space/2,bg=self.ICE_frame["bg"])
         self.speed_ICE_frame.grid(column=1, row=0)
         self.speed_ICE_frame.configure(highlightbackground="white", highlightthickness=2)
         self.speed_ICE_frame.pack_propagate(0)
