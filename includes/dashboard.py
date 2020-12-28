@@ -162,9 +162,20 @@ class Dashboard:
 
 
 
-        self.time_frame = LabelFrame(self.master, text="TIME", bd=3, width=3*width_screen/6-space, height=height_screen/4-space)
+        self.time_frame = Frame(self.master, width=3*width_screen/6-space, height=height_screen/4-space)
         self.time_frame.grid(column=1, row=3, columnspan=3)
-        self.time_frame.configure(bg="black", fg="white")
+        self.time_frame.configure(bg="black")
+        self.time_frame.pack_propagate(0)
+
+        self.time_label = Label(self.time_frame, text="TIME")
+        self.time_label.pack(anchor='nw')
+        self.time_label.configure(bg=self.time_frame["bg"], fg="white", font=("Helvetica", 26))
+
+        self.num_time_label = Label(self.time_frame, text="00:02:11")
+        self.num_time_label.pack(expand=True, anchor='nw')
+        self.num_time_label.configure(bg=self.time_frame["bg"], fg="yellow", font=("Helvetica", 90))
+
+
 
         self.speed_frame = LabelFrame(self.master, text="SPEED", bd=3, width=2*width_screen/6-space, height=height_screen/4-space)
         self.speed_frame.grid(column=4, row=3, columnspan=2)
