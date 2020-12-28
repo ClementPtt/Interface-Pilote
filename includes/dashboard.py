@@ -20,7 +20,7 @@ class Dashboard:
         space = width_screen/40
         self.master.geometry(f"{width_screen+20}x{height_screen+22}")
         self.master.title("Interface Pilote")
-        self.master.configure(bg="blue", highlightbackground="red", highlightcolor="red", highlightthickness=10, padx=0, pady=0, borderwidth=0, relief="flat")
+        self.master.configure(bg="black", highlightbackground="red", highlightcolor="red", highlightthickness=10, padx=0, pady=0, borderwidth=0, relief="flat")
         # get current working directory
         cwd = os.getcwd()
         # Add full path of the .ico image
@@ -75,35 +75,36 @@ class Dashboard:
         self.regen_frame.grid(column=0, row=2, columnspan=3)
         self.regen_frame.configure(bg="black", fg="white")
 
-        self.ICE_frame = Frame(self.master, width=3*width_screen/6-space*2, height=height_screen/4-space)
+        self.ICE_frame = Frame(self.master, width=3*width_screen/6, height=height_screen/4-space/2, bg='black')
         self.ICE_frame.grid(column=3, row=2, columnspan=3)
         self.ICE_frame.grid_propagate(0)
-        self.ICE_frame.configure(bg="black", highlightbackground="red", highlightthickness=10)
+        self.ICE_frame.configure(bg="black")
         # self.ICE_frame.rowconfigure(0, minsize=height_screen/4-30)
 
-        self.turn_ICE_frame = Frame(self.ICE_frame, width=width_screen/8, height=height_screen/4)
+        self.turn_ICE_frame = Frame(self.ICE_frame, width=width_screen/8, height=height_screen/4-space/2, bg='white')
         self.turn_ICE_frame.grid(column=0, row=0)
         self.turn_ICE_frame.pack_propagate(0)
 
         self.turn_ICE_label = Label(self.turn_ICE_frame, text='TURN')
-        self.turn_ICE_label.configure(font=("Helvetica", 35))
+        self.turn_ICE_label.configure(font=("Helvetica", 35), bg=self.turn_ICE_frame["bg"])
         self.turn_ICE_label.pack()
 
         self.num_turn_ICE_label = Label(self.turn_ICE_frame, text='2')
-        self.num_turn_ICE_label.configure(font=("Helvetica", 80))
-        self.num_turn_ICE_label.pack()
+        self.num_turn_ICE_label.configure(font=("Helvetica", 80), bg=self.turn_ICE_frame["bg"])
+        self.num_turn_ICE_label.pack(expand=True)
 
-        self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8, height=height_screen/4, background="black")
+        self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8, height=height_screen/4-space/2,bg=self.ICE_frame["bg"])
         self.speed_ICE_frame.grid(column=1, row=0)
+        self.speed_ICE_frame.configure(highlightbackground="white", highlightthickness=2)
         self.speed_ICE_frame.pack_propagate(0)
 
 
         self.speed_ICE_label = Label(self.speed_ICE_frame, text='ICE')
-        self.speed_ICE_label.configure(font=("Helvetica", 30), bg='black', fg="white")
+        self.speed_ICE_label.configure(font=("Helvetica", 30), bg=self.speed_ICE_frame["bg"], fg="white")
         self.speed_ICE_label.pack(anchor='nw')
 
         self.num_speed_ICE_label = Label(self.speed_ICE_frame, text='10 Km/h')
-        self.num_speed_ICE_label.configure(font=("Helvetica", 50), bg='black', fg="yellow")
+        self.num_speed_ICE_label.configure(font=("Helvetica", 50), bg=self.speed_ICE_frame["bg"], fg="yellow")
         self.num_speed_ICE_label.pack(expand=True)
 
 
@@ -124,10 +125,10 @@ class Dashboard:
 
 
 
-        self.time_frame = LabelFrame(self.master, text="TIME", bd=3, width=3*width_screen/6, height=height_screen/4)
+        self.time_frame = LabelFrame(self.master, text="TIME", bd=3, width=3*width_screen/6-space, height=height_screen/4-space)
         self.time_frame.grid(column=1, row=3, columnspan=3)
         self.time_frame.configure(bg="black", fg="white")
 
-        self.speed_frame = LabelFrame(self.master, text="SPEED", bd=3, width=2*width_screen/6, height=height_screen/4)
+        self.speed_frame = LabelFrame(self.master, text="SPEED", bd=3, width=2*width_screen/6-space/2, height=height_screen/4-space/2)
         self.speed_frame.grid(column=4, row=3, columnspan=2)
         self.speed_frame.configure(bg="black", fg="white")
