@@ -177,6 +177,15 @@ class Dashboard:
 
 
 
-        self.speed_frame = LabelFrame(self.master, text="SPEED", bd=3, width=2*width_screen/6-space, height=height_screen/4-space)
+        self.speed_frame = Frame(self.master, width=2*width_screen/6-space, height=height_screen/4-space)
         self.speed_frame.grid(column=4, row=3, columnspan=2)
-        self.speed_frame.configure(bg="black", fg="white")
+        self.speed_frame.configure(bg="black")
+        self.speed_frame.pack_propagate(0)
+
+        self.speed_label = Label(self.speed_frame, text="SPEED")
+        self.speed_label.pack(anchor='nw')
+        self.speed_label.configure(bg=self.speed_frame["bg"], fg="white", font=("Helvetica", 26))
+
+        self.num_speed_label = Label(self.speed_frame, text="24 km/h")
+        self.num_speed_label.pack(expand=True, anchor='nw')
+        self.num_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Helvetica", 70))
