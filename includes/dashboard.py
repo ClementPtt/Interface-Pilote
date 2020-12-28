@@ -38,9 +38,18 @@ class Dashboard:
         self.master.rowconfigure(3, minsize=height_screen/4)
 
 
-        self.lap_frame = LabelFrame(self.master, text="LAP", bd=3, width=width_screen/6-space, height=height_screen/4-space)
+        self.lap_frame = Frame(self.master, width=width_screen/6-space, height=height_screen/4-space)
         self.lap_frame.grid(column=0, row=0)
-        self.lap_frame.configure(bg="black", fg="white")
+        self.lap_frame.configure(bg="black", highlightbackground="white", highlightthickness=2)
+        self.lap_frame.pack_propagate(0)
+
+        self.lap_label = Label(self.lap_frame, text="LAP")
+        self.lap_label.pack()
+        self.lap_label.configure(bg=self.lap_frame["bg"], fg="white", font=("Helvetica", 26))
+
+        self.num_lap_label = Label(self.lap_frame, text="8/11")
+        self.num_lap_label.pack(expand=True)
+        self.num_lap_label.configure(bg=self.lap_frame["bg"], fg="yellow", font=("Helvetica", 50))
 
         self.SOC_frame = LabelFrame(self.master, text="SOC", bd=3, width=5*width_screen/6-space, height=height_screen/4-space)
         self.SOC_frame.grid(column=1, row=0, columnspan=5)
