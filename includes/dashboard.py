@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-28T18:11:54+01:00
+# @Last modified time: 2020-12-29T15:39:20+01:00
 
 from tkinter import *
 import os
@@ -25,6 +25,22 @@ class Dashboard:
         cwd = os.getcwd()
         # Add full path of the .ico image
         self.master.iconbitmap(cwd + "/images/estaca.ico")
+
+        self.speed=10.5
+        self.time=25320 #en millisecondes
+        self.break_value=False
+        self.turn_regen=8
+        self.value_regen=95 #en pourcent
+        self.target_speed=34.5 #en km
+        self.turn_ice=2
+        self.fuel=True
+        self.mode=True #True en mode hybride
+        self.value_soc=68 #en pourcent
+        self.race_delta=-18.5
+        self.live_delta=2.5
+        self.n_1_delta=-3.8
+        self.target_soc=85
+
 
 
         self.master.columnconfigure(0, minsize=width_screen/6)
@@ -193,16 +209,21 @@ class Dashboard:
         self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8-space, height=height_screen/4-space,bg=self.ICE_frame["bg"])
         self.speed_ICE_frame.grid(column=1, row=0)
         self.speed_ICE_frame.configure(highlightbackground="white", highlightthickness=2)
-        self.speed_ICE_frame.pack_propagate(0)
+        self.speed_ICE_frame.grid_propagate(0)
+        # self.ICE_frame.columnconfigure(0, minsize=(3*width_screen/8-space)/2)
 
 
         self.speed_ICE_label = Label(self.speed_ICE_frame, text='ICE')
         self.speed_ICE_label.configure(font=("Arial 30 bold"), bg=self.speed_ICE_frame["bg"], fg="white")
-        self.speed_ICE_label.pack(anchor='nw')
+        self.speed_ICE_label.grid(column=0, row=0)
+        self.speed_ICE_frame.columnconfigure(0)
 
-        self.num_speed_ICE_label = Label(self.speed_ICE_frame, text='10 Km/h')
-        self.num_speed_ICE_label.configure(font=("Arial 50 bold"), bg=self.speed_ICE_frame["bg"], fg="yellow")
-        self.num_speed_ICE_label.pack(expand=True)
+        self.int_speed_ICE_label = Label(self.speed_ICE_frame, text=str(int(self.target_speed)))
+        self.int_speed_ICE_label.grid(row=1, column=0, sticky="e")
+        self.int_speed_ICE_label.configure(bg=self.speed_ICE_frame["bg"], fg="yellow", font=("Arial 80 bold"))
+        self.dec_speed_ICE_label = Label(self.speed_ICE_frame, text="."+str(int(self.target_speed*10%10))+" km/h")
+        self.dec_speed_ICE_label.grid(row=1, column=1)
+        self.dec_speed_ICE_label.configure(bg=self.speed_ICE_frame["bg"], fg="yellow", font=("Arial 25 bold"))
 
 
 
@@ -246,12 +267,19 @@ class Dashboard:
         self.speed_frame = Frame(self.master, width=2*width_screen/6, height=height_screen/4-space)
         self.speed_frame.grid(column=4, row=4, columnspan=2)
         self.speed_frame.configure(bg="black")
-        self.speed_frame.pack_propagate(0)
+        self.speed_frame.grid_propagate(0)
 
         self.speed_label = Label(self.speed_frame, text="SPEED")
-        self.speed_label.pack(anchor='nw')
+        self.speed_label.grid(row=0, column=0)
         self.speed_label.configure(bg=self.speed_frame["bg"], fg="white", font=("Arial 25 bold"))
 
-        self.num_speed_label = Label(self.speed_frame, text="24 km/h")
-        self.num_speed_label.pack(expand=True, anchor='nw')
-        self.num_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 70 bold"))
+        # self.num_speed_frame = Frame(self.speed_frame)
+        # self.num_speed_frame.pack(expand=True, anchor='nw')
+        # self.num_speed_frame.configure(bg=self.speed_frame["bg"])
+        # self.num_speed_frame.pack_propagate(0)
+        self.int_speed_label = Label(self.speed_frame, text=str(int(self.speed)))
+        self.int_speed_label.grid(row=1, column=0)
+        self.int_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 90 bold"))
+        self.dec_speed_label = Label(self.speed_frame, text="."+str(int(self.speed*10%10))+" km/h")
+        self.dec_speed_label.grid(row=1, column=1)
+        self.dec_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 35 bold"))
