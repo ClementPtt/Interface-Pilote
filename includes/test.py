@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import * 
 import os
 from includes.gaugelib import *
 from includes.chrono import *
