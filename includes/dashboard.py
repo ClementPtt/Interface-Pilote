@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2020-12-29T15:39:20+01:00
+# @Last modified time: 2021-01-03T20:06:47+01:00
 
 from tkinter import *
 import os
@@ -83,6 +83,7 @@ class Dashboard:
 
         self.TSOC_frame = Frame(self.master)
         self.TSOC_frame.grid(column=1, row=0, columnspan=4)
+        self.TSOC_frame.configure(bg="black")
 
         self.TSOC_jauge_frame = Frame(self.TSOC_frame, width=4 * width_screen / 6 - space,
                                       height=height_screen / 10 - space)
@@ -159,7 +160,7 @@ class Dashboard:
 
         self.TSOC_num_frame = Frame(self.TSOC_frame)
         self.TSOC_num_frame.grid(column=0, row=1, sticky='w')
-        self.TSOC_frame.configure(bg="black")
+        self.TSOC_num_frame.configure(bg="black")
 
         self.TSOC_title_label = Label(self.TSOC_num_frame, text='TARGET SOC ')
         self.TSOC_title_label.configure(font=("Arial 30 bold"), bg='black', fg='white')
@@ -168,6 +169,9 @@ class Dashboard:
         self.TSOC_num_label = Label(self.TSOC_num_frame, text=str(self.target_soc)+'%')
         self.TSOC_num_label.configure(font=("Arial 50 bold"), bg='black', fg='yellow')
         self.TSOC_num_label.grid(column=1, row=0)
+
+
+
 
         self.others_frame = LabelFrame(self.master, text="EMPTY", bd=3, width=width_screen / 6 - space,
                                        height=height_screen / 4 - space)
