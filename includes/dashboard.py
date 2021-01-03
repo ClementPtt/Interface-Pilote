@@ -107,7 +107,7 @@ class Dashboard:
         self.liveD_label.configure(font=("Arial 25 bold"), bg='white', fg='black')
         self.liveD_label.pack()
 
-        self.num_liveD_label = Label(self.liveD_frame, text='+2.5s')
+        self.num_liveD_label = Label(self.liveD_frame, text=str(self.live_delta)+'s')
         self.num_liveD_label.configure(font=("Arial 40 bold"), bg='white', fg='red')
         self.num_liveD_label.pack(expand=True)
 
@@ -120,7 +120,7 @@ class Dashboard:
         self.raceD_label.configure(font=("Arial 25 bold"), bg=self.deltas_frame["bg"], fg='white')
         self.raceD_label.pack()
 
-        self.num_raceD_label = Label(self.raceD_frame, text='-18 s')
+        self.num_raceD_label = Label(self.raceD_frame, text=str(self.race_delta)+'s')
         self.num_raceD_label.configure(font=("Arial 40 bold"), bg=self.deltas_frame["bg"], fg='green')
         self.num_raceD_label.pack(expand=True)
 
@@ -133,7 +133,7 @@ class Dashboard:
         self.nD_label.configure(font=("Arial 25 bold"), bg=self.deltas_frame["bg"], fg='white')
         self.nD_label.pack()
 
-        self.nD_label = Label(self.nD_frame, text='-3.8 s')
+        self.nD_label = Label(self.nD_frame, text=str(self.n_1_delta)+'s')
         self.nD_label.configure(font=("Arial 40 bold"), bg=self.deltas_frame["bg"], fg='green')
         self.nD_label.pack(expand=True)
 
@@ -170,7 +170,7 @@ class Dashboard:
         self.turn_regen_label.configure(font=("Arial 35 bold"), bg=self.turn_regen_frame["bg"])
         self.turn_regen_label.pack()
 
-        self.num_turn_regen_label = Label(self.turn_regen_frame, text='8')
+        self.num_turn_regen_label = Label(self.turn_regen_frame, text=str(self.turn_regen))
         self.num_turn_regen_label.configure(font=("Arial 80 bold"), bg=self.turn_regen_frame["bg"])
         self.num_turn_regen_label.pack(expand=True)
 
@@ -183,7 +183,7 @@ class Dashboard:
         self.speed_regen_label.configure(font=("Arial 30 bold"), bg=self.speed_regen_frame["bg"], fg="white")
         self.speed_regen_label.pack(anchor='nw')
 
-        self.num_speed_regen_label = Label(self.speed_regen_frame, text='85%')
+        self.num_speed_regen_label = Label(self.speed_regen_frame, text=str(self.value_regen)+'%')
         self.num_speed_regen_label.configure(font=("Arial 50 bold"), bg=self.speed_regen_frame["bg"], fg="yellow")
         self.num_speed_regen_label.pack(expand=True)
 
@@ -202,7 +202,7 @@ class Dashboard:
         self.turn_ICE_label.configure(font=("Arial 35 bold"), bg=self.turn_ICE_frame["bg"])
         self.turn_ICE_label.pack()
 
-        self.num_turn_ICE_label = Label(self.turn_ICE_frame, text='2')
+        self.num_turn_ICE_label = Label(self.turn_ICE_frame, text=str(self.turn_ice))
         self.num_turn_ICE_label.configure(font=("Arial 80 bold"), bg=self.turn_ICE_frame["bg"])
         self.num_turn_ICE_label.pack(expand=True)
 
@@ -219,10 +219,10 @@ class Dashboard:
         self.speed_ICE_frame.columnconfigure(0)
 
         self.int_speed_ICE_label = Label(self.speed_ICE_frame, text=str(int(self.target_speed)))
-        self.int_speed_ICE_label.grid(row=1, column=0, sticky="e")
-        self.int_speed_ICE_label.configure(bg=self.speed_ICE_frame["bg"], fg="yellow", font=("Arial 80 bold"))
+        self.int_speed_ICE_label.grid(row=1, column=5, sticky='ns')
+        self.int_speed_ICE_label.configure(bg=self.speed_ICE_frame["bg"], fg="yellow", font=("Arial 50 bold"))
         self.dec_speed_ICE_label = Label(self.speed_ICE_frame, text="."+str(int(self.target_speed*10%10))+" km/h")
-        self.dec_speed_ICE_label.grid(row=1, column=1)
+        self.dec_speed_ICE_label.grid(row=1, column=6)
         self.dec_speed_ICE_label.configure(bg=self.speed_ICE_frame["bg"], fg="yellow", font=("Arial 25 bold"))
 
 
@@ -278,8 +278,8 @@ class Dashboard:
         # self.num_speed_frame.configure(bg=self.speed_frame["bg"])
         # self.num_speed_frame.pack_propagate(0)
         self.int_speed_label = Label(self.speed_frame, text=str(int(self.speed)))
-        self.int_speed_label.grid(row=1, column=0)
-        self.int_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 90 bold"))
+        self.int_speed_label.grid(row=1, column=0, sticky='ns')
+        self.int_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 70 bold"))
         self.dec_speed_label = Label(self.speed_frame, text="."+str(int(self.speed*10%10))+" km/h")
-        self.dec_speed_label.grid(row=1, column=1)
+        self.dec_speed_label.grid(row=1, column=1, sticky='s')
         self.dec_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 35 bold"))
