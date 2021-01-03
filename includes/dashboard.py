@@ -36,7 +36,7 @@ class Dashboard:
         self.turn_ice = 2
         self.fuel = True
         self.mode = True  # True en mode hybride
-        self.value_soc = 75  # en pourcent
+        self.value_soc = 80  # en pourcent
         self.race_delta = -18.5
         self.live_delta = 2.5
         self.n_1_delta = -3.8
@@ -89,17 +89,73 @@ class Dashboard:
         self.TSOC_jauge_frame.grid(column=0, row=0)
         self.TSOC_jauge_frame.configure(bg="black", highlightbackground="white", highlightthickness=4)
 
-        self.TSOC_full_jauge_frame = Frame(self.TSOC_jauge_frame,
-                                           width=self.value_soc / 100 * self.TSOC_jauge_frame["width"],
-                                           height=height_screen / 10 - space)
-        self.TSOC_full_jauge_frame.grid(column=0, row=0)
-        self.TSOC_full_jauge_frame.configure(bg="green")
+        if self.value_soc < self.target_soc:
 
-        self.TSOC_empty_jauge_frame = Frame(self.TSOC_jauge_frame,
-                                            width=(100 - self.value_soc) / 100 * self.TSOC_jauge_frame["width"],
-                                            height=height_screen / 10 - space)
-        self.TSOC_empty_jauge_frame.grid(column=1, row=0)
-        self.TSOC_empty_jauge_frame.configure(bg="black")
+            self.TSOC_full_jauge_frame = Frame(self.TSOC_jauge_frame,
+                                               width=self.value_soc / 100 * self.TSOC_jauge_frame["width"],
+                                               height=height_screen / 10 - space)
+            self.TSOC_full_jauge_frame.grid(column=0, row=0)
+            self.TSOC_full_jauge_frame.configure(bg="green")
+
+            self.TSOC_empty1_jauge_frame = Frame(self.TSOC_jauge_frame, width=(self.target_soc - self.value_soc) / 100 * self.TSOC_jauge_frame["width"],
+                                                height=height_screen / 10 - space)
+            self.TSOC_empty1_jauge_frame.grid(column=1, row=0)
+            self.TSOC_empty1_jauge_frame.configure(bg="black")
+
+            self.TSOC_empty2_jauge_frame = Frame(self.TSOC_jauge_frame, width=(100 - self.target_soc + 1) / 100 * self.TSOC_jauge_frame[
+                                                     "width"],
+                                                 height=height_screen / 10 - space)
+            self.TSOC_empty2_jauge_frame.grid(column=3, row=0)
+            self.TSOC_empty2_jauge_frame.configure(bg="black")
+
+            self.TSOC_cursor_jauge_frame = Frame(self.TSOC_jauge_frame,
+                                                width=0.01* self.TSOC_jauge_frame["width"],
+                                                height=height_screen / 10 - space)
+            self.TSOC_cursor_jauge_frame.grid(column=2, row=0)
+            self.TSOC_cursor_jauge_frame.configure(bg="white")
+
+        elif self.value_soc > self.target_soc:
+            self.TSOC_full1_jauge_frame = Frame(self.TSOC_jauge_frame,
+                                               width=self.target_soc / 100 * self.TSOC_jauge_frame["width"],
+                                               height=height_screen / 10 - space)
+            self.TSOC_full1_jauge_frame.grid(column=0, row=0)
+            self.TSOC_full1_jauge_frame.configure(bg="green")
+
+            self.TSOC_full2_jauge_frame = Frame(self.TSOC_jauge_frame,
+                                                width=(self.value_soc - self.target_soc +1) / 100 * self.TSOC_jauge_frame["width"],
+                                                height=height_screen / 10 - space)
+            self.TSOC_full2_jauge_frame.grid(column=2, row=0)
+            self.TSOC_full2_jauge_frame.configure(bg="green")
+
+            self.TSOC_empty_jauge_frame = Frame(self.TSOC_jauge_frame,
+                                                 width=(100 - self.value_soc) / 100 * self.TSOC_jauge_frame[
+                                                     "width"],
+                                                 height=height_screen / 10 - space)
+            self.TSOC_empty_jauge_frame.grid(column=3, row=0)
+            self.TSOC_empty_jauge_frame.configure(bg="black")
+
+
+            self.TSOC_cursor_jauge_frame = Frame(self.TSOC_jauge_frame,
+                                                 width=0.01 * self.TSOC_jauge_frame["width"],
+                                                 height=height_screen / 10 - space)
+            self.TSOC_cursor_jauge_frame.grid(column=1, row=0)
+            self.TSOC_cursor_jauge_frame.configure(bg="white")
+
+        elif self.value_soc == self.target_soc:
+            self.TSOC_full_jauge_frame = Frame(self.TSOC_jauge_frame,
+                                               width=self.value_soc / 100 * self.TSOC_jauge_frame["width"],
+                                               height=height_screen / 10 - space)
+            self.TSOC_full_jauge_frame.grid(column=0, row=0)
+            self.TSOC_full_jauge_frame.configure(bg="green")
+
+            self.TSOC_empty_jauge_frame = Frame(self.TSOC_jauge_frame,
+                                                 width=(100 - self.value_soc) / 100 * self.TSOC_jauge_frame[
+                                                     "width"],
+                                                 height=height_screen / 10 - space)
+            self.TSOC_empty_jauge_frame.grid(column=1, row=0)
+            self.TSOC_empty_jauge_frame.configure(bg="black")
+
+
 
         self.TSOC_num_frame = Frame(self.TSOC_frame)
         self.TSOC_num_frame.grid(column=0, row=1, sticky='w')
@@ -109,7 +165,7 @@ class Dashboard:
         self.TSOC_title_label.configure(font=("Arial 30 bold"), bg='black', fg='white')
         self.TSOC_title_label.grid(column=0, row=0, sticky='s')
 
-        self.TSOC_num_label = Label(self.TSOC_num_frame, text='85%')
+        self.TSOC_num_label = Label(self.TSOC_num_frame, text=str(self.target_soc)+'%')
         self.TSOC_num_label.configure(font=("Arial 50 bold"), bg='black', fg='yellow')
         self.TSOC_num_label.grid(column=1, row=0)
 
