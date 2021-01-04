@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2021-01-04T19:54:45+01:00
+# @Last modified time: 2021-01-04T19:57:02+01:00
 
 from tkinter import *
 import os
@@ -289,7 +289,7 @@ class Dashboard:
         self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8-space,
                                      height=height_screen/4-space, bg=self.ICE_frame["bg"])
         self.speed_ICE_frame.grid(column=1, row=0)
-        self.speed_ICE_frame.configure(highlightbackground="white", highlightthickness=2)
+        self.speed_ICE_frame.configure(highlightbackground="white")
         self.speed_ICE_frame.grid_propagate(0)
         # self.ICE_frame.columnconfigure(0, minsize=(3*width_screen/8-space)/2)
 
@@ -323,7 +323,7 @@ class Dashboard:
         self.mode_label.pack(anchor="sw", side=BOTTOM)
         self.mode_label.configure(bg="red", fg="white", font=("Arial 45 bold"))
 
-        self.time_frame = Frame(self.master, width=3*width_screen/6, height=height_screen/4-space)
+        self.time_frame = Frame(self.master, width=3*width_screen/6, height=height_screen/4-2-space)
         self.time_frame.grid(column=1, row=4, columnspan=3)
         self.time_frame.configure(bg="black")
         self.time_frame.pack_propagate(0)
@@ -336,7 +336,7 @@ class Dashboard:
         self.num_time_label.pack(expand=True, anchor='nw')
         self.num_time_label.configure(bg=self.time_frame["bg"], fg="yellow", font=("Arial 90 bold"))
 
-        self.speed_frame = Frame(self.master, width=2*width_screen/6, height=height_screen/4-space)
+        self.speed_frame = Frame(self.master, width=2*width_screen/6, height=height_screen/4-2-space)
         self.speed_frame.grid(column=4, row=4, columnspan=2)
         self.speed_frame.configure(bg="black")
         self.speed_frame.grid_propagate(0)
