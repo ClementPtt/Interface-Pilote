@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2021-01-04T19:57:02+01:00
+# @Last modified time: 2021-01-04T20:10:09+01:00
 
 from tkinter import *
 import os
@@ -16,7 +16,7 @@ class Dashboard:
 
         # set windows dimensions adapted to the screen
         width_screen = self.master.winfo_screenwidth()-150
-        height_screen = self.master.winfo_screenheight()-150
+        height_screen = self.master.winfo_screenheight()-146
         space = width_screen/40
         self.master.geometry(f"{width_screen+20}x{height_screen+20}")
         self.master.title("Interface Pilote")
@@ -52,8 +52,8 @@ class Dashboard:
         self.master.rowconfigure(0, minsize=height_screen/4)
         self.master.rowconfigure(1, minsize=height_screen/4)
         self.master.rowconfigure(2, minsize=height_screen/4)
-        self.master.rowconfigure(3, minsize=2)
-        self.master.rowconfigure(4, minsize=height_screen/4-2)
+        self.master.rowconfigure(3, minsize=space)
+        self.master.rowconfigure(4, minsize=height_screen/4-space)
 
         self.lap_frame = Frame(self.master, width=width_screen/6-space, height=height_screen/4-space)
         self.lap_frame.grid(column=0, row=0)
@@ -289,7 +289,7 @@ class Dashboard:
         self.speed_ICE_frame = Frame(self.ICE_frame, width=3*width_screen/8-space,
                                      height=height_screen/4-space, bg=self.ICE_frame["bg"])
         self.speed_ICE_frame.grid(column=1, row=0)
-        self.speed_ICE_frame.configure(highlightbackground="white")
+        self.speed_ICE_frame.configure(highlightbackground="white", highlightthickness=2)
         self.speed_ICE_frame.grid_propagate(0)
         # self.ICE_frame.columnconfigure(0, minsize=(3*width_screen/8-space)/2)
 
@@ -310,7 +310,7 @@ class Dashboard:
         self.spacer_frame.grid(column=0, row=3, columnspan=6)
         self.spacer_frame.configure(bg="white")
 
-        self.breaks_mode_frame = Frame(self.master, width=width_screen/6, height=height_screen/4-2)
+        self.breaks_mode_frame = Frame(self.master, width=width_screen/6, height=height_screen/4-2-space)
         self.breaks_mode_frame.grid(column=0, row=4)
         self.breaks_mode_frame.pack_propagate(0)
         self.breaks_mode_frame.configure(bg="black")
