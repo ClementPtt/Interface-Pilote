@@ -101,7 +101,7 @@ class Test:
         # self.master.iconbitmap(cwd + "/images/estaca.ico")
         
         #On définit la taille des différentes font en fonction de la taille de l'écran
-        font_titre=("Arial", int(space*1.1),"bold")
+        font_titre=("Arial", int(space*0.8),"bold")
         font_titre_donnees=("Arial", int(space*1.5),"bold")
         font_donnees=("Arial", int(space*1.75),"bold")
         font_vitesse=("Arial", int(space*2.5),"bold")
@@ -180,7 +180,7 @@ class Test:
 
         self.engine_torque_label=Label(self.engine_torque_frame,text="Engine")
         self.engine_torque_label.pack(side=RIGHT)
-        self.engine_torque_label.configure(bg=self.engine_torque_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.engine_torque_label.configure(bg=self.engine_torque_frame["bg"], fg="white", font=font_titre)
 
         self.engine_torque_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.engine_torque_frame.grid(column=1, row=1)
@@ -189,7 +189,7 @@ class Test:
 
         self.engine_torque_label=Label(self.engine_torque_frame,text="Torque")
         self.engine_torque_label.pack(side=LEFT)
-        self.engine_torque_label.configure(bg=self.engine_torque_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.engine_torque_label.configure(bg=self.engine_torque_frame["bg"], fg="white", font=font_titre)
 
         self.engine_torque_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
         self.engine_torque_value_frame.grid(column=2, row=1)  
@@ -198,14 +198,14 @@ class Test:
 
         self.engine_torque_value_label=Label(self.engine_torque_value_frame, text=self.engine_torque)
         self.engine_torque_value_label.pack()
-        self.engine_torque_value_label.configure(bg=self.engine_torque_value_frame["bg"], fg="yellow", font=("Arial 40 bold")) 
+        self.engine_torque_value_label.configure(bg=self.engine_torque_value_frame["bg"], fg="yellow", font=font_donnees) 
         self.torque_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.torque_frame.grid(column=3, row=1)
         self.torque_frame.configure(bg="black")
         self.torque_frame.pack_propagate(0)
         self.torque_label=Label(self.torque_frame, text="Nm")
         self.torque_label.pack(anchor="w", side=LEFT)
-        self.torque_label.configure(bg=self.engine_torque_value_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.torque_label.configure(bg=self.engine_torque_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #engine Temp
         
@@ -216,7 +216,7 @@ class Test:
 
         self.engine_temp_label=Label(self.engine_temp_frame,text="Engine")
         self.engine_temp_label.pack(side=RIGHT)
-        self.engine_temp_label.configure(bg=self.engine_temp_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.engine_temp_label.configure(bg=self.engine_temp_frame["bg"], fg="white", font=font_titre)
 
         self.engine_temp_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.engine_temp_frame.grid(column=1, row=2)
@@ -225,7 +225,7 @@ class Test:
 
         self.engine_temp_label=Label(self.engine_temp_frame,text="Temp.")
         self.engine_temp_label.pack(side=LEFT)
-        self.engine_temp_label.configure(bg=self.engine_temp_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.engine_temp_label.configure(bg=self.engine_temp_frame["bg"], fg="white", font=font_titre)
 
         self.engine_temp_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
         self.engine_temp_value_frame.grid(column=2, row=2)  
@@ -234,14 +234,14 @@ class Test:
 
         self.engine_temp_value_label=Label(self.engine_temp_value_frame, text=self.engine_temp)
         self.engine_temp_value_label.pack()
-        self.engine_temp_value_label.configure(bg=self.engine_temp_value_frame["bg"], fg="yellow", font=("Arial 40 bold")) 
+        self.engine_temp_value_label.configure(bg=self.engine_temp_value_frame["bg"], fg="yellow", font=font_donnees) 
         self.temp_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.temp_frame.grid(column=3, row=2)
         self.temp_frame.configure(bg="black")
         self.temp_frame.pack_propagate(0)
         self.temp_label=Label(self.temp_frame, text="°C")
         self.temp_label.pack(anchor="w", side=LEFT)
-        self.temp_label.configure(bg=self.engine_temp_value_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.temp_label.configure(bg=self.engine_temp_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #Pression fuel
         
@@ -252,7 +252,7 @@ class Test:
 
         self.p_fuel_label=Label(self.p_fuel_frame,text="P Fuel")
         self.p_fuel_label.pack(side=RIGHT)
-        self.p_fuel_label.configure(bg=self.p_fuel_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.p_fuel_label.configure(bg=self.p_fuel_frame["bg"], fg="white", font=font_titre)
 
         self.p_fuel_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
         self.p_fuel_value_frame.grid(column=2, row=3)  
@@ -261,14 +261,14 @@ class Test:
 
         self.p_fuel_value_label=Label(self.p_fuel_value_frame, text=self.p_fuel)
         self.p_fuel_value_label.pack()
-        self.p_fuel_value_label.configure(bg=self.p_fuel_value_frame["bg"], fg="yellow", font=("Arial 40 bold")) 
+        self.p_fuel_value_label.configure(bg=self.p_fuel_value_frame["bg"], fg="yellow", font=font_donnees) 
         self.p_fuel_unit_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.p_fuel_unit_frame.grid(column=3, row=3)
         self.p_fuel_unit_frame.configure(bg="black")
         self.p_fuel_unit_frame.pack_propagate(0)
         self.p_fuel_unit_label=Label(self.p_fuel_unit_frame, text="bars")
         self.p_fuel_unit_label.pack(anchor="w", side=LEFT)
-        self.p_fuel_unit_label.configure(bg=self.p_fuel_unit_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.p_fuel_unit_label.configure(bg=self.p_fuel_unit_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #Fuel cons
         
@@ -279,7 +279,7 @@ class Test:
 
         self.fuel_cons_label=Label(self.fuel_cons_frame,text="Fuel")
         self.fuel_cons_label.pack(side=RIGHT)
-        self.fuel_cons_label.configure(bg=self.fuel_cons_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.fuel_cons_label.configure(bg=self.fuel_cons_frame["bg"], fg="white", font=font_titre)
 
         self.fuel_cons_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.fuel_cons_frame.grid(column=1, row=4)
@@ -288,7 +288,7 @@ class Test:
 
         self.fuel_cons_label=Label(self.fuel_cons_frame,text="Cons.")
         self.fuel_cons_label.pack(side=LEFT)
-        self.fuel_cons_label.configure(bg=self.fuel_cons_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.fuel_cons_label.configure(bg=self.fuel_cons_frame["bg"], fg="white", font=font_titre)
 
         self.fuel_cons_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
         self.fuel_cons_value_frame.grid(column=2, row=4)  
@@ -297,14 +297,14 @@ class Test:
 
         self.fuel_cons_value_label=Label(self.fuel_cons_value_frame, text=self.fuel_cons)
         self.fuel_cons_value_label.pack()
-        self.fuel_cons_value_label.configure(bg=self.fuel_cons_value_frame["bg"], fg="yellow", font=("Arial 40 bold")) 
+        self.fuel_cons_value_label.configure(bg=self.fuel_cons_value_frame["bg"], fg="yellow", font=font_donnees) 
         self.fuel_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.fuel_frame.grid(column=3, row=4)
         self.fuel_frame.configure(bg="black")
         self.fuel_frame.pack_propagate(0)
         self.fuel_label=Label(self.fuel_frame, text="mL")
         self.fuel_label.pack(anchor="w", side=LEFT)
-        self.fuel_label.configure(bg=self.fuel_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.fuel_label.configure(bg=self.fuel_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #ICE Clutch n°1
         
@@ -315,7 +315,7 @@ class Test:
 
         self.ice_clutch1_label=Label(self.ice_clutch1_frame,text="ICE")
         self.ice_clutch1_label.pack(side=RIGHT)
-        self.ice_clutch1_label.configure(bg=self.ice_clutch1_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.ice_clutch1_label.configure(bg=self.ice_clutch1_frame["bg"], fg="white", font=font_titre)
 
         self.ice_clutch1_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.ice_clutch1_frame.grid(column=1, row=5)
@@ -324,7 +324,7 @@ class Test:
 
         self.ice_clutch1_label=Label(self.ice_clutch1_frame,text="Clutch")
         self.ice_clutch1_label.pack(side=LEFT)
-        self.ice_clutch1_label.configure(bg=self.ice_clutch1_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.ice_clutch1_label.configure(bg=self.ice_clutch1_frame["bg"], fg="white", font=font_titre)
 
         self.ice_clutch1_value_frame=Frame(self.master, width=width_screen/8-2*space, height=height_screen/8-space)
         self.ice_clutch1_value_frame.grid(column=2, row=5)
@@ -344,7 +344,7 @@ class Test:
 
         self.rpm_motor_label=Label(self.rpm_motor_frame,text="RPM")
         self.rpm_motor_label.pack(side=RIGHT)
-        self.rpm_motor_label.configure(bg=self.rpm_motor_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.rpm_motor_label.configure(bg=self.rpm_motor_frame["bg"], fg="white", font=font_titre)
 
         self.rpm_motor_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.rpm_motor_frame.grid(column=5, row=0)
@@ -353,7 +353,7 @@ class Test:
 
         self.rpm_motor_label=Label(self.rpm_motor_frame,text="Motor")
         self.rpm_motor_label.pack(side=LEFT)
-        self.rpm_motor_label.configure(bg=self.rpm_motor_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.rpm_motor_label.configure(bg=self.rpm_motor_frame["bg"], fg="white", font=font_titre)
 
         self.rpm_motor_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
         self.rpm_motor_value_frame.grid(column=6, row=0)  
@@ -362,14 +362,14 @@ class Test:
 
         self.rpm_motor_value_label=Label(self.rpm_motor_value_frame, text=self.motor_rpm)
         self.rpm_motor_value_label.pack()
-        self.rpm_motor_value_label.configure(bg=self.rpm_motor_value_frame["bg"], fg="yellow", font=("Arial 40 bold")) 
+        self.rpm_motor_value_label.configure(bg=self.rpm_motor_value_frame["bg"], fg="yellow", font=font_donnees) 
         self.rpm_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.rpm_frame.grid(column=7, row=0)
         self.rpm_frame.configure(bg="black")
         self.rpm_frame.pack_propagate(0)
         self.rpm_label=Label(self.rpm_frame, text="RPM")
         self.rpm_label.pack(anchor="w", side=LEFT)
-        self.rpm_label.configure(bg=self.engine_rpm_value_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.rpm_label.configure(bg=self.engine_rpm_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         
         #Motor Torque
@@ -381,7 +381,7 @@ class Test:
 
         self.torque_motor_label=Label(self.torque_motor_frame,text="Torque")
         self.torque_motor_label.pack(side=RIGHT)
-        self.torque_motor_label.configure(bg=self.torque_motor_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.torque_motor_label.configure(bg=self.torque_motor_frame["bg"], fg="white", font=font_titre)
 
         self.torque_motor_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.torque_motor_frame.grid(column=5, row=1)
@@ -390,7 +390,7 @@ class Test:
 
         self.torque_motor_label=Label(self.torque_motor_frame,text="motor")
         self.torque_motor_label.pack(side=LEFT)
-        self.torque_motor_label.configure(bg=self.torque_motor_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.torque_motor_label.configure(bg=self.torque_motor_frame["bg"], fg="white", font=font_titre)
 
         self.torque_motor_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
         self.torque_motor_value_frame.grid(column=6, row=1)  
@@ -399,14 +399,14 @@ class Test:
 
         self.torque_motor_value_label=Label(self.torque_motor_value_frame, text=self.motor_torque)
         self.torque_motor_value_label.pack()
-        self.torque_motor_value_label.configure(bg=self.torque_motor_value_frame["bg"], fg="yellow", font=("Arial 40 bold")) 
+        self.torque_motor_value_label.configure(bg=self.torque_motor_value_frame["bg"], fg="yellow", font=font_donnees) 
         self.torque_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.torque_frame.grid(column=7, row=1)
         self.torque_frame.configure(bg="black")
         self.torque_frame.pack_propagate(0)
         self.torque_label=Label(self.torque_frame, text="Nm")
         self.torque_label.pack(anchor="w", side=LEFT)
-        self.torque_label.configure(bg=self.torque_motor_value_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.torque_label.configure(bg=self.torque_motor_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #Motor Temp
         
@@ -417,7 +417,7 @@ class Test:
 
         self.motor_temp_label=Label(self.motor_temp_frame,text="Motor")
         self.motor_temp_label.pack(side=RIGHT)
-        self.motor_temp_label.configure(bg=self.motor_temp_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.motor_temp_label.configure(bg=self.motor_temp_frame["bg"], fg="white", font=font_titre)
 
         self.motor_temp_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.motor_temp_frame.grid(column=5, row=2)
@@ -426,7 +426,7 @@ class Test:
 
         self.motor_temp_label=Label(self.motor_temp_frame,text="Temp.")
         self.motor_temp_label.pack(side=LEFT)
-        self.motor_temp_label.configure(bg=self.motor_temp_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.motor_temp_label.configure(bg=self.motor_temp_frame["bg"], fg="white", font=font_titre)
 
         self.motor_temp_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
         self.motor_temp_value_frame.grid(column=6, row=2)  
@@ -435,14 +435,14 @@ class Test:
 
         self.motor_temp_value_label=Label(self.motor_temp_value_frame, text=self.motor_temp)
         self.motor_temp_value_label.pack()
-        self.motor_temp_value_label.configure(bg=self.motor_temp_value_frame["bg"], fg="yellow", font=("Arial 40 bold")) 
+        self.motor_temp_value_label.configure(bg=self.motor_temp_value_frame["bg"], fg="yellow", font=font_donnees) 
         self.temp_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.temp_frame.grid(column=7, row=2)
         self.temp_frame.configure(bg="black")
         self.temp_frame.pack_propagate(0)
         self.temp_label=Label(self.temp_frame, text="°C")
         self.temp_label.pack(anchor="w", side=LEFT)
-        self.temp_label.configure(bg=self.motor_temp_value_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.temp_label.configure(bg=self.motor_temp_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #Distance
         
@@ -453,7 +453,7 @@ class Test:
 
         self.distance_label=Label(self.distance_frame,text="Distance")
         self.distance_label.pack(side=RIGHT)
-        self.distance_label.configure(bg=self.distance_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.distance_label.configure(bg=self.distance_frame["bg"], fg="white", font=font_titre)
 
         self.distance_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
         self.distance_value_frame.grid(column=6, row=3)  
@@ -462,14 +462,14 @@ class Test:
 
         self.distance_value_label=Label(self.distance_value_frame, text=self.distance)
         self.distance_value_label.pack()
-        self.distance_value_label.configure(bg=self.distance_value_frame["bg"], fg="yellow", font=("Arial 40 bold")) 
+        self.distance_value_label.configure(bg=self.distance_value_frame["bg"], fg="yellow", font=font_donnees) 
         self.distance_unit_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.distance_unit_frame.grid(column=7, row=3)
         self.distance_unit_frame.configure(bg="black")
         self.distance_unit_frame.pack_propagate(0)
         self.distance_unit_label=Label(self.distance_unit_frame, text="km")
         self.distance_unit_label.pack(anchor="w", side=LEFT)
-        self.distance_unit_label.configure(bg=self.distance_unit_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.distance_unit_label.configure(bg=self.distance_unit_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #Efficiency
         
@@ -480,7 +480,7 @@ class Test:
 
         self.efficiency_label=Label(self.efficiency_frame,text="Efficiency")
         self.efficiency_label.pack(side=RIGHT)
-        self.efficiency_label.configure(bg=self.efficiency_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.efficiency_label.configure(bg=self.efficiency_frame["bg"], fg="white", font=font_titre)
 
         self.efficiency_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
         self.efficiency_value_frame.grid(column=6, row=4)  
@@ -489,14 +489,14 @@ class Test:
 
         self.efficiency_value_label=Label(self.efficiency_value_frame, text=self.efficiency)
         self.efficiency_value_label.pack()
-        self.efficiency_value_label.configure(bg=self.efficiency_value_frame["bg"], fg="yellow", font=("Arial 40 bold")) 
+        self.efficiency_value_label.configure(bg=self.efficiency_value_frame["bg"], fg="yellow", font=font_donnees) 
         self.efficiency_unit_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.efficiency_unit_frame.grid(column=7, row=4)
         self.efficiency_unit_frame.configure(bg="black")
         self.efficiency_unit_frame.pack_propagate(0)
         self.efficiency_unit_label=Label(self.efficiency_unit_frame, text="km/L")
         self.efficiency_unit_label.pack(anchor="w", side=LEFT)
-        self.efficiency_unit_label.configure(bg=self.efficiency_unit_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.efficiency_unit_label.configure(bg=self.efficiency_unit_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #ICE Clutch n°2
         
@@ -507,7 +507,7 @@ class Test:
 
         self.ice_clutch2_label=Label(self.ice_clutch2_frame,text="ICE")
         self.ice_clutch2_label.pack(side=RIGHT)
-        self.ice_clutch2_label.configure(bg=self.ice_clutch2_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.ice_clutch2_label.configure(bg=self.ice_clutch2_frame["bg"], fg="white", font=font_titre)
 
         self.ice_clutch2_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.ice_clutch2_frame.grid(column=5, row=5)
@@ -516,7 +516,7 @@ class Test:
 
         self.ice_clutch2_label=Label(self.ice_clutch2_frame,text="Clutch")
         self.ice_clutch2_label.pack(side=LEFT)
-        self.ice_clutch2_label.configure(bg=self.ice_clutch2_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.ice_clutch2_label.configure(bg=self.ice_clutch2_frame["bg"], fg="white", font=font_titre)
 
         self.ice_clutch2_value_frame=Frame(self.master, width=width_screen/8-2*space, height=height_screen/8-space)
         self.ice_clutch2_value_frame.grid(column=6, row=5)
@@ -525,7 +525,7 @@ class Test:
 
         self.ice_clutch2_value_label=Label(self.ice_clutch2_value_frame, text=clutch2_value, pady=100)
         self.ice_clutch2_value_label.pack()
-        self.ice_clutch2_value_label.configure(bg=self.ice_clutch2_value_frame["bg"], fg="white", font=("Arial 26 bold"))
+        self.ice_clutch2_value_label.configure(bg=self.ice_clutch2_value_frame["bg"], fg="white", font=font_titre)
 
         #Spacer ligne blanche
 
@@ -542,11 +542,11 @@ class Test:
 
         self.fuel_label=Label(self.fuel_mode_frame, text="FUEL")
         self.fuel_label.pack()
-        self.fuel_label.configure(bg=self.fuel_mode_frame["bg"], fg="white", font="Arial 25 bold")
+        self.fuel_label.configure(bg=self.fuel_mode_frame["bg"], fg="white", font=font_titre)
 
         self.fuel_mode_label=Label(self.fuel_mode_frame, text=fuel_mode_value)
         self.fuel_mode_label.pack(expand=True)
-        self.fuel_mode_label.configure(bg=self.fuel_mode_frame["bg"], fg="yellow", font="Arial 40 bold")
+        self.fuel_mode_label.configure(bg=self.fuel_mode_frame["bg"], fg="yellow", font=font_donnees)
 
         # SOC
 
@@ -557,11 +557,11 @@ class Test:
 
         self.soc_label=Label(self.soc_frame, text="SOC")
         self.soc_label.pack()
-        self.soc_label.configure(bg=self.soc_frame["bg"],fg="white", font="Arial 25 bold")
+        self.soc_label.configure(bg=self.soc_frame["bg"],fg="white", font=font_titre)
 
         self.soc_value_label=Label(self.soc_frame, text="%s %s" % (self.soc,"%"))
         self.soc_value_label.pack(expand=True)
-        self.soc_value_label.configure(bg=self.soc_frame["bg"], fg="yellow", font="Arial 40 bold")
+        self.soc_value_label.configure(bg=self.soc_frame["bg"], fg="yellow", font=font_donnees)
 
         #LIPO
 
@@ -572,11 +572,11 @@ class Test:
 
         self.lipo_label=Label(self.lipo_frame, text="LIPO")
         self.lipo_label.pack()
-        self.lipo_label.configure(bg=self.lipo_frame["bg"],fg="white", font="Arial 25 bold")
+        self.lipo_label.configure(bg=self.lipo_frame["bg"],fg="white", font=font_titre)
 
         self.lipo_value_label=Label(self.lipo_frame, text="%s %s" % (self.lipo,"%"))
         self.lipo_value_label.pack(expand=True)
-        self.lipo_value_label.configure(bg=self.lipo_frame["bg"], fg="yellow", font="Arial 40 bold")
+        self.lipo_value_label.configure(bg=self.lipo_frame["bg"], fg="yellow", font=font_donnees)
 
         #3G
 
@@ -587,7 +587,7 @@ class Test:
 
         self.connexion_label=Label(self.connexion_frame, text="3G")
         self.connexion_label.pack(pady=0.5*space)
-        self.connexion_label.configure(bg=self.connexion_frame["bg"],fg=etat_connexion_label, font="Arial 30 bold")
+        self.connexion_label.configure(bg=self.connexion_frame["bg"],fg=etat_connexion_label, font=font_titre)
 
         #GPS
 
@@ -598,7 +598,7 @@ class Test:
 
         self.gps_label=Label(self.gps_frame, text="GPS")
         self.gps_label.pack(pady=0.5*space)
-        self.gps_label.configure(bg=self.gps_frame["bg"],fg=etat_gps_label, font="Arial 30 bold")
+        self.gps_label.configure(bg=self.gps_frame["bg"],fg=etat_gps_label, font=font_titre)
 
         #Speed
 
@@ -609,7 +609,7 @@ class Test:
 
         self.speed_label=Label(self.speed_frame, text="SPEED")
         self.speed_label.pack(anchor=NW, side=LEFT)
-        self.speed_label.configure(bg=self.speed_frame["bg"],fg="white",font="Arial 25 bold")
+        self.speed_label.configure(bg=self.speed_frame["bg"],fg="white",font=font_titre)
 
         self.speed_value_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.speed_value_frame.grid(column=6, row=8)
@@ -618,7 +618,7 @@ class Test:
 
         self.speed_value_label=Label(self.speed_value_frame, text=self.speed)
         self.speed_value_label.pack(expand=True, anchor=E)
-        self.speed_value_label.configure(bg=self.speed_value_frame["bg"],fg="yellow", font="Arial 60 bold")
+        self.speed_value_label.configure(bg=self.speed_value_frame["bg"],fg="yellow", font=font_vitesse)
 
         self.speed_unit_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.speed_unit_frame.grid(column=7, row=8)
@@ -627,5 +627,4 @@ class Test:
 
         self.speed_unit_label=Label(self.speed_unit_frame, text="km/h")
         self.speed_unit_label.pack(expand=True, anchor=W)
-        self.speed_unit_label.configure(bg=self.speed_unit_frame["bg"],fg="yellow", font="Arial 35 bold")
-
+        self.speed_unit_label.configure(bg=self.speed_unit_frame["bg"],fg="yellow", font=font_titre_donnees)
