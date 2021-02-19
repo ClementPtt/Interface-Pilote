@@ -106,6 +106,8 @@ class Test:
         font_donnees=("Arial", int(space*1.75),"bold")
         font_vitesse=("Arial", int(space*2.5),"bold")
         font_hy=("Arial", int(space*2),"bold")
+        font_etat_clutch=("Arial", int(space*1.2),"bold")
+        font_titre_signaux=("Arial", int(space*1.2),"bold")
 
         self.master.rowconfigure(0, minsize=height_screen/8)
         self.master.rowconfigure(1, minsize=height_screen/8)
@@ -333,7 +335,7 @@ class Test:
 
         self.ice_clutch1_value_label=Label(self.ice_clutch1_value_frame, text=clutch1_value, pady=100)
         self.ice_clutch1_value_label.pack()
-        self.ice_clutch1_value_label.configure(bg=self.ice_clutch1_value_frame["bg"], fg="white", font=("Arial 26 bold"))
+        self.ice_clutch1_value_label.configure(bg=self.ice_clutch1_value_frame["bg"], fg="white", font=font_etat_clutch)
 
         #RPM Motor
 
@@ -525,7 +527,7 @@ class Test:
 
         self.ice_clutch2_value_label=Label(self.ice_clutch2_value_frame, text=clutch2_value, pady=100)
         self.ice_clutch2_value_label.pack()
-        self.ice_clutch2_value_label.configure(bg=self.ice_clutch2_value_frame["bg"], fg="white", font=font_titre)
+        self.ice_clutch2_value_label.configure(bg=self.ice_clutch2_value_frame["bg"], fg="white", font=font_etat_clutch)
 
         #Spacer ligne blanche
 
@@ -542,7 +544,7 @@ class Test:
 
         self.fuel_label=Label(self.fuel_mode_frame, text="FUEL")
         self.fuel_label.pack()
-        self.fuel_label.configure(bg=self.fuel_mode_frame["bg"], fg="white", font=font_titre)
+        self.fuel_label.configure(bg=self.fuel_mode_frame["bg"], fg="white", font=font_titre_signaux)
 
         self.fuel_mode_label=Label(self.fuel_mode_frame, text=fuel_mode_value)
         self.fuel_mode_label.pack(expand=True)
@@ -557,11 +559,11 @@ class Test:
 
         self.soc_label=Label(self.soc_frame, text="SOC")
         self.soc_label.pack()
-        self.soc_label.configure(bg=self.soc_frame["bg"],fg="white", font=font_titre)
+        self.soc_label.configure(bg=self.soc_frame["bg"],fg="white", font=font_titre_signaux)
 
         self.soc_value_label=Label(self.soc_frame, text="%s %s" % (self.soc,"%"))
         self.soc_value_label.pack(expand=True)
-        self.soc_value_label.configure(bg=self.soc_frame["bg"], fg="yellow", font=font_donnees)
+        self.soc_value_label.configure(bg=self.soc_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #LIPO
 
@@ -572,11 +574,11 @@ class Test:
 
         self.lipo_label=Label(self.lipo_frame, text="LIPO")
         self.lipo_label.pack()
-        self.lipo_label.configure(bg=self.lipo_frame["bg"],fg="white", font=font_titre)
+        self.lipo_label.configure(bg=self.lipo_frame["bg"],fg="white", font=font_titre_signaux)
 
         self.lipo_value_label=Label(self.lipo_frame, text="%s %s" % (self.lipo,"%"))
         self.lipo_value_label.pack(expand=True)
-        self.lipo_value_label.configure(bg=self.lipo_frame["bg"], fg="yellow", font=font_donnees)
+        self.lipo_value_label.configure(bg=self.lipo_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #3G
 
@@ -587,7 +589,7 @@ class Test:
 
         self.connexion_label=Label(self.connexion_frame, text="3G")
         self.connexion_label.pack(pady=0.5*space)
-        self.connexion_label.configure(bg=self.connexion_frame["bg"],fg=etat_connexion_label, font=font_titre)
+        self.connexion_label.configure(bg=self.connexion_frame["bg"],fg=etat_connexion_label, font=font_titre_donnees)
 
         #GPS
 
@@ -598,7 +600,7 @@ class Test:
 
         self.gps_label=Label(self.gps_frame, text="GPS")
         self.gps_label.pack(pady=0.5*space)
-        self.gps_label.configure(bg=self.gps_frame["bg"],fg=etat_gps_label, font=font_titre)
+        self.gps_label.configure(bg=self.gps_frame["bg"],fg=etat_gps_label, font=font_titre_donnees)
 
         #Speed
 
