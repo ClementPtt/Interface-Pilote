@@ -1,5 +1,6 @@
 from tkinter import *
 import os
+import math
 from includes.gaugelib import *
 from includes.chrono import *
 import tkinter.font as font
@@ -88,16 +89,23 @@ class Test:
             etat_gps_label="white"
 
         #Fenêtre qui s'adapte à la taille de l'écran
-        width_screen = self.master.winfo_screenwidth()-50
-        height_screen = self.master.winfo_screenheight()-50
-        space = width_screen/50
-        self.master.geometry(f"{width_screen+20}x{height_screen+22}")
+        width_screen = self.master.winfo_screenwidth()-math.ceil(self.master.winfo_screenwidth()/50) #math.ceil()pour récuupérer la partie entière. On prend une marge entre la résolution de l'écran et la fenêtre de travail.
+        height_screen = self.master.winfo_screenheight()-math.ceil(self.master.winfo_screenheight()/50)
+        space = math.ceil(width_screen/50) #variable qui va espacer les différents cadres
+        self.master.geometry(f"{width_screen+space}x{height_screen+space}")
         self.master.title("Menu TEST")
         self.master.configure(bg="black", highlightbackground="white", highlightcolor=hy_background, highlightthickness=10, padx=0, pady=0, borderwidth=0, relief="flat")
         # get current working directory
         cwd = os.getcwd()
         # Add full path of the .ico image
-        self.master.iconbitmap(cwd + "/images/estaca.ico")
+        # self.master.iconbitmap(cwd + "/images/estaca.ico")
+        
+        #On définit la taille des différentes font en fonction de la taille de l'écran
+        font_titre=("Arial", int(space*1.1),"bold")
+        font_titre_donnees=("Arial", int(space*1.5),"bold")
+        font_donnees=("Arial", int(space*1.75),"bold")
+        font_vitesse=("Arial", int(space*2.5),"bold")
+        font_hy=("Arial", int(space*2),"bold")
 
         self.master.rowconfigure(0, minsize=height_screen/8)
         self.master.rowconfigure(1, minsize=height_screen/8)
@@ -125,7 +133,7 @@ class Test:
         
         self.hybride_mode_label= Label(self.hybride_mode_frame, text="HY")
         self.hybride_mode_label.pack(anchor="sw", side=BOTTOM)
-        self.hybride_mode_label.configure(bg=hy_color, fg=hy_police, font=("Arial 45 bold"))
+        self.hybride_mode_label.configure(bg=hy_color, fg=hy_police, font=font_hy)
 
         #engine RPM
 
@@ -136,7 +144,7 @@ class Test:
 
         self.engine_rpm_label=Label(self.engine_rpm_frame,text="Engine")
         self.engine_rpm_label.pack(side=RIGHT)
-        self.engine_rpm_label.configure(bg=self.engine_rpm_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.engine_rpm_label.configure(bg=self.engine_rpm_frame["bg"], fg="white", font=font_titre)
 
         self.engine_rpm_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.engine_rpm_frame.grid(column=1, row=0)
@@ -145,7 +153,7 @@ class Test:
 
         self.engine_rpm_label=Label(self.engine_rpm_frame,text="RPM")
         self.engine_rpm_label.pack(side=LEFT)
-        self.engine_rpm_label.configure(bg=self.engine_rpm_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.engine_rpm_label.configure(bg=self.engine_rpm_frame["bg"], fg="white", font=font_titre)
 
         self.engine_rpm_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
         self.engine_rpm_value_frame.grid(column=2, row=0)  
@@ -154,14 +162,14 @@ class Test:
 
         self.engine_rpm_value_label=Label(self.engine_rpm_value_frame, text=self.engine_rpm)
         self.engine_rpm_value_label.pack()
-        self.engine_rpm_value_label.configure(bg=self.engine_rpm_value_frame["bg"], fg="yellow", font=("Arial 40 bold")) 
+        self.engine_rpm_value_label.configure(bg=self.engine_rpm_value_frame["bg"], fg="yellow", font=font_donnees) 
         self.rpm_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.rpm_frame.grid(column=3, row=0)
         self.rpm_frame.configure(bg="black")
         self.rpm_frame.pack_propagate(0)
         self.rpm_label=Label(self.rpm_frame, text="RPM")
         self.rpm_label.pack(anchor="w", side=LEFT)
-        self.rpm_label.configure(bg=self.engine_rpm_value_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.rpm_label.configure(bg=self.engine_rpm_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #engine Torque
         
@@ -620,3 +628,4 @@ class Test:
         self.speed_unit_label=Label(self.speed_unit_frame, text="km/h")
         self.speed_unit_label.pack(expand=True, anchor=W)
         self.speed_unit_label.configure(bg=self.speed_unit_frame["bg"],fg="yellow", font="Arial 35 bold")
+
