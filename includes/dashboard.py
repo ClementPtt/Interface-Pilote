@@ -1,7 +1,7 @@
 # @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
 # @Last modified by:   laurent
-# @Last modified time: 2021-01-04T20:10:09+01:00
+# @Last modified time: 2021-03-02T19:43:13+01:00
 
 from tkinter import *
 import os
@@ -15,10 +15,10 @@ class Dashboard:
         self.master = master
 
         # set windows dimensions adapted to the screen
-        width_screen = self.master.winfo_screenwidth()-150
-        height_screen = self.master.winfo_screenheight()-146
+        width_screen = self.master.winfo_screenwidth()-20
+        height_screen = self.master.winfo_screenheight()-20
         space = width_screen/40
-        self.master.geometry(f"{width_screen+20}x{height_screen+20}")
+        self.master.geometry(f"{width_screen}x{height_screen}")
         self.master.title("Interface Pilote")
         self.master.configure(bg="black", highlightbackground="red", highlightcolor="red", highlightthickness=10,
                               padx=0, pady=0, borderwidth=0, relief="flat")
