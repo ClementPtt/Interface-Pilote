@@ -1,7 +1,5 @@
-# @Author: laurent
 # @Date:   2020-12-26T18:43:20+01:00
-# @Last modified by:   laurent
-# @Last modified time: 2021-03-02T19:43:13+01:00
+# @Last modified time: 2021-03-02T19:47:28+01:00
 
 from tkinter import *
 import os

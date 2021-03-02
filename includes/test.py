@@ -1,3 +1,8 @@
+# @Date:   2021-03-02T15:32:13+01:00
+# @Last modified time: 2021-03-02T19:47:46+01:00
+
+
+
 from tkinter import *
 import os
 import math
@@ -79,7 +84,7 @@ class Test:
         else:
             etat_connexion_background="red"
             etat_connexion_label="white"
-        
+
         # Etat connexion GPS
         if self.gps == True :
             etat_gps_background="#03FF00"
@@ -99,7 +104,7 @@ class Test:
         cwd = os.getcwd()
         # Add full path of the .ico image
         # self.master.iconbitmap(cwd + "/images/estaca.ico")
-        
+
         #On définit la taille des différentes font en fonction de la taille de l'écran
         font_titre=("Arial", int(space*0.8),"bold")
         font_titre_donnees=("Arial", int(space*1.5),"bold")
@@ -132,7 +137,7 @@ class Test:
         self.hybride_mode_frame.grid(column=0,row=8)
         self.hybride_mode_frame.pack_propagate(0)
         self.hybride_mode_frame.configure(bg="black")
-        
+
         self.hybride_mode_label= Label(self.hybride_mode_frame, text="HY")
         self.hybride_mode_label.pack(anchor="sw", side=BOTTOM)
         self.hybride_mode_label.configure(bg=hy_color, fg=hy_police, font=font_hy)
@@ -158,13 +163,13 @@ class Test:
         self.engine_rpm_label.configure(bg=self.engine_rpm_frame["bg"], fg="white", font=font_titre)
 
         self.engine_rpm_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
-        self.engine_rpm_value_frame.grid(column=2, row=0)  
+        self.engine_rpm_value_frame.grid(column=2, row=0)
         self.engine_rpm_value_frame.configure(bg="black")
         self.engine_rpm_value_frame.pack_propagate(0)
 
         self.engine_rpm_value_label=Label(self.engine_rpm_value_frame, text=self.engine_rpm)
         self.engine_rpm_value_label.pack()
-        self.engine_rpm_value_label.configure(bg=self.engine_rpm_value_frame["bg"], fg="yellow", font=font_donnees) 
+        self.engine_rpm_value_label.configure(bg=self.engine_rpm_value_frame["bg"], fg="yellow", font=font_donnees)
         self.rpm_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.rpm_frame.grid(column=3, row=0)
         self.rpm_frame.configure(bg="black")
@@ -174,7 +179,7 @@ class Test:
         self.rpm_label.configure(bg=self.engine_rpm_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #engine Torque
-        
+
         self.engine_torque_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.engine_torque_frame.grid(column=0, row=1)
         self.engine_torque_frame.configure(bg="black")
@@ -194,13 +199,13 @@ class Test:
         self.engine_torque_label.configure(bg=self.engine_torque_frame["bg"], fg="white", font=font_titre)
 
         self.engine_torque_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
-        self.engine_torque_value_frame.grid(column=2, row=1)  
+        self.engine_torque_value_frame.grid(column=2, row=1)
         self.engine_torque_value_frame.configure(bg="black")
         self.engine_torque_value_frame.pack_propagate(0)
 
         self.engine_torque_value_label=Label(self.engine_torque_value_frame, text=self.engine_torque)
         self.engine_torque_value_label.pack()
-        self.engine_torque_value_label.configure(bg=self.engine_torque_value_frame["bg"], fg="yellow", font=font_donnees) 
+        self.engine_torque_value_label.configure(bg=self.engine_torque_value_frame["bg"], fg="yellow", font=font_donnees)
         self.torque_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.torque_frame.grid(column=3, row=1)
         self.torque_frame.configure(bg="black")
@@ -210,7 +215,7 @@ class Test:
         self.torque_label.configure(bg=self.engine_torque_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #engine Temp
-        
+
         self.engine_temp_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.engine_temp_frame.grid(column=0, row=2)
         self.engine_temp_frame.configure(bg="black")
@@ -230,13 +235,13 @@ class Test:
         self.engine_temp_label.configure(bg=self.engine_temp_frame["bg"], fg="white", font=font_titre)
 
         self.engine_temp_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
-        self.engine_temp_value_frame.grid(column=2, row=2)  
+        self.engine_temp_value_frame.grid(column=2, row=2)
         self.engine_temp_value_frame.configure(bg="black")
         self.engine_temp_value_frame.pack_propagate(0)
 
         self.engine_temp_value_label=Label(self.engine_temp_value_frame, text=self.engine_temp)
         self.engine_temp_value_label.pack()
-        self.engine_temp_value_label.configure(bg=self.engine_temp_value_frame["bg"], fg="yellow", font=font_donnees) 
+        self.engine_temp_value_label.configure(bg=self.engine_temp_value_frame["bg"], fg="yellow", font=font_donnees)
         self.temp_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.temp_frame.grid(column=3, row=2)
         self.temp_frame.configure(bg="black")
@@ -246,7 +251,7 @@ class Test:
         self.temp_label.configure(bg=self.engine_temp_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #Pression fuel
-        
+
         self.p_fuel_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.p_fuel_frame.grid(column=0, row=3)
         self.p_fuel_frame.configure(bg="black")
@@ -257,13 +262,13 @@ class Test:
         self.p_fuel_label.configure(bg=self.p_fuel_frame["bg"], fg="white", font=font_titre)
 
         self.p_fuel_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
-        self.p_fuel_value_frame.grid(column=2, row=3)  
+        self.p_fuel_value_frame.grid(column=2, row=3)
         self.p_fuel_value_frame.configure(bg="black")
         self.p_fuel_value_frame.pack_propagate(0)
 
         self.p_fuel_value_label=Label(self.p_fuel_value_frame, text=self.p_fuel)
         self.p_fuel_value_label.pack()
-        self.p_fuel_value_label.configure(bg=self.p_fuel_value_frame["bg"], fg="yellow", font=font_donnees) 
+        self.p_fuel_value_label.configure(bg=self.p_fuel_value_frame["bg"], fg="yellow", font=font_donnees)
         self.p_fuel_unit_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.p_fuel_unit_frame.grid(column=3, row=3)
         self.p_fuel_unit_frame.configure(bg="black")
@@ -273,7 +278,7 @@ class Test:
         self.p_fuel_unit_label.configure(bg=self.p_fuel_unit_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #Fuel cons
-        
+
         self.fuel_cons_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.fuel_cons_frame.grid(column=0, row=4)
         self.fuel_cons_frame.configure(bg="black")
@@ -293,13 +298,13 @@ class Test:
         self.fuel_cons_label.configure(bg=self.fuel_cons_frame["bg"], fg="white", font=font_titre)
 
         self.fuel_cons_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
-        self.fuel_cons_value_frame.grid(column=2, row=4)  
+        self.fuel_cons_value_frame.grid(column=2, row=4)
         self.fuel_cons_value_frame.configure(bg="black")
         self.fuel_cons_value_frame.pack_propagate(0)
 
         self.fuel_cons_value_label=Label(self.fuel_cons_value_frame, text=self.fuel_cons)
         self.fuel_cons_value_label.pack()
-        self.fuel_cons_value_label.configure(bg=self.fuel_cons_value_frame["bg"], fg="yellow", font=font_donnees) 
+        self.fuel_cons_value_label.configure(bg=self.fuel_cons_value_frame["bg"], fg="yellow", font=font_donnees)
         self.fuel_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.fuel_frame.grid(column=3, row=4)
         self.fuel_frame.configure(bg="black")
@@ -309,7 +314,7 @@ class Test:
         self.fuel_label.configure(bg=self.fuel_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #ICE Clutch n°1
-        
+
         self.ice_clutch1_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.ice_clutch1_frame.grid(column=0, row=5)
         self.ice_clutch1_frame.configure(bg="black")
@@ -358,13 +363,13 @@ class Test:
         self.rpm_motor_label.configure(bg=self.rpm_motor_frame["bg"], fg="white", font=font_titre)
 
         self.rpm_motor_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
-        self.rpm_motor_value_frame.grid(column=6, row=0)  
+        self.rpm_motor_value_frame.grid(column=6, row=0)
         self.rpm_motor_value_frame.configure(bg="black")
         self.rpm_motor_value_frame.pack_propagate(0)
 
         self.rpm_motor_value_label=Label(self.rpm_motor_value_frame, text=self.motor_rpm)
         self.rpm_motor_value_label.pack()
-        self.rpm_motor_value_label.configure(bg=self.rpm_motor_value_frame["bg"], fg="yellow", font=font_donnees) 
+        self.rpm_motor_value_label.configure(bg=self.rpm_motor_value_frame["bg"], fg="yellow", font=font_donnees)
         self.rpm_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.rpm_frame.grid(column=7, row=0)
         self.rpm_frame.configure(bg="black")
@@ -373,9 +378,9 @@ class Test:
         self.rpm_label.pack(anchor="w", side=LEFT)
         self.rpm_label.configure(bg=self.engine_rpm_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
-        
+
         #Motor Torque
-        
+
         self.torque_motor_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.torque_motor_frame.grid(column=4, row=1)
         self.torque_motor_frame.configure(bg="black")
@@ -395,13 +400,13 @@ class Test:
         self.torque_motor_label.configure(bg=self.torque_motor_frame["bg"], fg="white", font=font_titre)
 
         self.torque_motor_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
-        self.torque_motor_value_frame.grid(column=6, row=1)  
+        self.torque_motor_value_frame.grid(column=6, row=1)
         self.torque_motor_value_frame.configure(bg="black")
         self.torque_motor_value_frame.pack_propagate(0)
 
         self.torque_motor_value_label=Label(self.torque_motor_value_frame, text=self.motor_torque)
         self.torque_motor_value_label.pack()
-        self.torque_motor_value_label.configure(bg=self.torque_motor_value_frame["bg"], fg="yellow", font=font_donnees) 
+        self.torque_motor_value_label.configure(bg=self.torque_motor_value_frame["bg"], fg="yellow", font=font_donnees)
         self.torque_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.torque_frame.grid(column=7, row=1)
         self.torque_frame.configure(bg="black")
@@ -411,7 +416,7 @@ class Test:
         self.torque_label.configure(bg=self.torque_motor_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #Motor Temp
-        
+
         self.motor_temp_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.motor_temp_frame.grid(column=4, row=2)
         self.motor_temp_frame.configure(bg="black")
@@ -431,13 +436,13 @@ class Test:
         self.motor_temp_label.configure(bg=self.motor_temp_frame["bg"], fg="white", font=font_titre)
 
         self.motor_temp_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
-        self.motor_temp_value_frame.grid(column=6, row=2)  
+        self.motor_temp_value_frame.grid(column=6, row=2)
         self.motor_temp_value_frame.configure(bg="black")
         self.motor_temp_value_frame.pack_propagate(0)
 
         self.motor_temp_value_label=Label(self.motor_temp_value_frame, text=self.motor_temp)
         self.motor_temp_value_label.pack()
-        self.motor_temp_value_label.configure(bg=self.motor_temp_value_frame["bg"], fg="yellow", font=font_donnees) 
+        self.motor_temp_value_label.configure(bg=self.motor_temp_value_frame["bg"], fg="yellow", font=font_donnees)
         self.temp_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.temp_frame.grid(column=7, row=2)
         self.temp_frame.configure(bg="black")
@@ -447,7 +452,7 @@ class Test:
         self.temp_label.configure(bg=self.motor_temp_value_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #Distance
-        
+
         self.distance_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.distance_frame.grid(column=4, row=3)
         self.distance_frame.configure(bg="black")
@@ -458,13 +463,13 @@ class Test:
         self.distance_label.configure(bg=self.distance_frame["bg"], fg="white", font=font_titre)
 
         self.distance_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
-        self.distance_value_frame.grid(column=6, row=3)  
+        self.distance_value_frame.grid(column=6, row=3)
         self.distance_value_frame.configure(bg="black")
         self.distance_value_frame.pack_propagate(0)
 
         self.distance_value_label=Label(self.distance_value_frame, text=self.distance)
         self.distance_value_label.pack()
-        self.distance_value_label.configure(bg=self.distance_value_frame["bg"], fg="yellow", font=font_donnees) 
+        self.distance_value_label.configure(bg=self.distance_value_frame["bg"], fg="yellow", font=font_donnees)
         self.distance_unit_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.distance_unit_frame.grid(column=7, row=3)
         self.distance_unit_frame.configure(bg="black")
@@ -474,7 +479,7 @@ class Test:
         self.distance_unit_label.configure(bg=self.distance_unit_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #Efficiency
-        
+
         self.efficiency_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.efficiency_frame.grid(column=4, row=4)
         self.efficiency_frame.configure(bg="black")
@@ -485,13 +490,13 @@ class Test:
         self.efficiency_label.configure(bg=self.efficiency_frame["bg"], fg="white", font=font_titre)
 
         self.efficiency_value_frame=Frame(self.master,width=width_screen/8-space, height=height_screen/8-space)
-        self.efficiency_value_frame.grid(column=6, row=4)  
+        self.efficiency_value_frame.grid(column=6, row=4)
         self.efficiency_value_frame.configure(bg="black")
         self.efficiency_value_frame.pack_propagate(0)
 
         self.efficiency_value_label=Label(self.efficiency_value_frame, text=self.efficiency)
         self.efficiency_value_label.pack()
-        self.efficiency_value_label.configure(bg=self.efficiency_value_frame["bg"], fg="yellow", font=font_donnees) 
+        self.efficiency_value_label.configure(bg=self.efficiency_value_frame["bg"], fg="yellow", font=font_donnees)
         self.efficiency_unit_frame=Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.efficiency_unit_frame.grid(column=7, row=4)
         self.efficiency_unit_frame.configure(bg="black")
@@ -501,7 +506,7 @@ class Test:
         self.efficiency_unit_label.configure(bg=self.efficiency_unit_frame["bg"], fg="yellow", font=font_titre_donnees)
 
         #ICE Clutch n°2
-        
+
         self.ice_clutch2_frame = Frame(self.master, width=width_screen/8-space, height=height_screen/8-space)
         self.ice_clutch2_frame.grid(column=4, row=5)
         self.ice_clutch2_frame.configure(bg="black")
