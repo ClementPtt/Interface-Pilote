@@ -1,8 +1,6 @@
 # @Date:   2020-11-04T16:21:54+01:00
-# @Last modified time: 2021-03-22T18:34:21+01:00
+# @Last modified time: 2021-03-22T18:35:51+01:00
 
-from includes.dashboard_only import *
-from includes.test_only import *
 from includes.dashboard import *
 from tkinter import *
 
