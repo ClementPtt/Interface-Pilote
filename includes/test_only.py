@@ -1,12 +1,11 @@
 # @Date:   2021-03-02T15:32:13+01:00
-# @Last modified time: 2021-03-22T12:22:44+01:00
+# @Last modified time: 2021-03-22T12:57:59+01:00
 
 
 
 from tkinter import *
 import os
 import math
-from includes.gaugelib import *
 from includes.chrono import *
 import tkinter.font as font
 
