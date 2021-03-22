@@ -1,5 +1,5 @@
 # @Date:   2021-03-02T15:32:13+01:00
-# @Last modified time: 2021-03-02T19:47:46+01:00
+# @Last modified time: 2021-03-22T12:19:47+01:00
 
 
 
@@ -94,8 +94,10 @@ class Test:
             etat_gps_label="white"
 
         #Fenêtre qui s'adapte à la taille de l'écran
-        width_screen = self.master.winfo_screenwidth()-math.ceil(self.master.winfo_screenwidth()/50) #math.ceil()pour récuupérer la partie entière. On prend une marge entre la résolution de l'écran et la fenêtre de travail.
-        height_screen = self.master.winfo_screenheight()-math.ceil(self.master.winfo_screenheight()/50)
+        # width_screen = self.master.winfo_screenwidth()-math.ceil(self.master.winfo_screenwidth()/50) #math.ceil()pour récuupérer la partie entière. On prend une marge entre la résolution de l'écran et la fenêtre de travail.
+        width_screen = self.master.winfo_screenwidth()-20 #-20 de highlightthockness=10
+        # height_screen = self.master.winfo_screenheight()-math.ceil(self.master.winfo_screenheight()/50)
+        height_screen = self.master.winfo_screenheight()-20 #-20 de highlightthockness=10
         space = math.ceil(width_screen/50) #variable qui va espacer les différents cadres
         self.master.geometry(f"{width_screen+space}x{height_screen+space}")
         self.master.title("Menu TEST")
@@ -120,9 +122,9 @@ class Test:
         self.master.rowconfigure(3, minsize=height_screen/8)
         self.master.rowconfigure(4, minsize=height_screen/8)
         self.master.rowconfigure(5, minsize=height_screen/8)
-        self.master.rowconfigure(6, minsize=2)
+        self.master.rowconfigure(6, minsize=5)
         self.master.rowconfigure(7, minsize=height_screen/8)
-        self.master.rowconfigure(8, minsize=height_screen/8-2)
+        self.master.rowconfigure(8, minsize=height_screen/8-5)
 
         self.master.columnconfigure(0, minsize=width_screen/8)
         self.master.columnconfigure(1, minsize=width_screen/8)
@@ -133,7 +135,7 @@ class Test:
         self.master.columnconfigure(6, minsize=width_screen/8)
         self.master.columnconfigure(7, minsize=width_screen/8)
 
-        self.hybride_mode_frame=Frame(self.master, width=width_screen/8, height=height_screen/8-8)
+        self.hybride_mode_frame=Frame(self.master, width=width_screen/8, height=height_screen/8-5)
         self.hybride_mode_frame.grid(column=0,row=8)
         self.hybride_mode_frame.pack_propagate(0)
         self.hybride_mode_frame.configure(bg="black")
