@@ -1,5 +1,5 @@
 # @Date:   2021-03-02T15:32:13+01:00
-# @Last modified time: 2021-03-22T12:19:47+01:00
+# @Last modified time: 2021-03-22T12:22:44+01:00
 
 
 
@@ -101,7 +101,7 @@ class Test:
         space = math.ceil(width_screen/50) #variable qui va espacer les différents cadres
         self.master.geometry(f"{width_screen+space}x{height_screen+space}")
         self.master.title("Menu TEST")
-        self.master.configure(bg="black", highlightbackground="white", highlightcolor=hy_background, highlightthickness=10, padx=0, pady=0, borderwidth=0, relief="flat")
+        self.master.configure(bg="black", highlightbackground=hy_background, highlightcolor=hy_background, highlightthickness=10, padx=0, pady=0, borderwidth=0, relief="flat")
         # get current working directory
         cwd = os.getcwd()
         # Add full path of the .ico image
