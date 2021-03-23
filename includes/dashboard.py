@@ -1,5 +1,5 @@
 # @Date:   2021-03-22T12:52:26+01:00
-# @Last modified time: 2021-03-22T18:58:39+01:00
+# @Last modified time: 2021-03-23T14:26:40+01:00
 
 from tkinter import *
 import os
@@ -143,12 +143,13 @@ class Dashboard:
         self.font_titre_signaux=("Arial", int(self.space*1.2),"bold")
 
 
-    def FrameDestroy(self):
+    def __FrameDestroy(self):
         for widget in self.master.winfo_children():
             widget.destroy()
 
     def DispTRACK(self):
 
+        self.__FrameDestroy()
         self.master.columnconfigure(0, minsize=self.width_screen/6)
         self.master.columnconfigure(1, minsize=self.width_screen/6)
         self.master.columnconfigure(2, minsize=self.width_screen/6)
@@ -464,6 +465,8 @@ class Dashboard:
 
 
     def DispTEST(self):
+
+        self.__FrameDestroy()
         self.master.rowconfigure(0, minsize=self.height_screen/8)
         self.master.rowconfigure(1, minsize=self.height_screen/8)
         self.master.rowconfigure(2, minsize=self.height_screen/8)
