@@ -1,5 +1,5 @@
 # @Date:   2021-03-22T12:52:26+01:00
-# @Last modified time: 2021-03-23T14:26:40+01:00
+# @Last modified time: 2021-03-23T14:31:25+01:00
 
 from tkinter import *
 import os
@@ -30,7 +30,7 @@ class Dashboard:
         self.connexion=True #True si état de connexion 3g OK
         self.gps=True #True si connexion GPS OK
         self.speed=25 #km/h
-        self.hybride_mode=False #False si mode HY pas activé
+        self.hybride_mode=True #False si mode HY pas activé
 
         # self.speed = 10.5
         self.time = 25320  # en millisecondes
@@ -891,7 +891,7 @@ class Dashboard:
 
         self.spacer_frame = Frame(self.master, width=self.width_screen, height=5)
         self.spacer_frame.grid(column=0, row=6, columnspan=8)
-        self.spacer_frame.configure(bg=self.hy_background)
+        self.spacer_frame.configure(bg="white")
 
         #Fuel mode
 
