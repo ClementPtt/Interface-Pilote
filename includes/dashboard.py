@@ -1,5 +1,5 @@
 # @Date:   2021-03-22T12:52:26+01:00
-# @Last modified time: 2021-03-22T18:34:37+01:00
+# @Last modified time: 2021-03-22T18:58:39+01:00
 
 from tkinter import *
 import os
@@ -141,6 +141,11 @@ class Dashboard:
         self.font_hy=("Arial", int(self.space*2),"bold")
         self.font_etat_clutch=("Arial", int(self.space*1.2),"bold")
         self.font_titre_signaux=("Arial", int(self.space*1.2),"bold")
+
+
+    def FrameDestroy(self):
+        for widget in self.master.winfo_children():
+            widget.destroy()
 
     def DispTRACK(self):
 
