@@ -1,5 +1,5 @@
 # @Date:   2021-03-22T12:52:26+01:00
-# @Last modified time: 2021-03-23T17:23:49+01:00
+# @Last modified time: 2021-03-23T17:27:08+01:00
 
 from tkinter import *
 import os
@@ -431,7 +431,7 @@ class Dashboard:
         self.mode_label.pack(anchor="sw", side=BOTTOM)
         self.mode_label.configure(bg=self.hy_background, fg=self.hy_police, font=self.font_hy)
 
-        self.time_frame = Frame(self.master, width=3*self.width_screen/6, height=self.height_screen/4-2-self.space)
+        self.time_frame = Frame(self.master, width=3*self.width_screen/6, height=self.height_screen/4-self.space)
         self.time_frame.grid(column=1, row=4, columnspan=3)
         self.time_frame.configure(bg="black")
         self.time_frame.pack_propagate(0)
@@ -444,7 +444,7 @@ class Dashboard:
         self.num_time_label.pack(expand=True, anchor='nw')
         self.num_time_label.configure(bg=self.time_frame["bg"], fg="yellow", font=("Arial 90 bold"))
 
-        self.speed_frame = Frame(self.master, width=2*self.width_screen/6, height=self.height_screen/4-2-self.space)
+        self.speed_frame = Frame(self.master, width=2*self.width_screen/6-self.space, height=self.height_screen/4-self.space)
         self.speed_frame.grid(column=4, row=4, columnspan=2)
         self.speed_frame.configure(bg="black")
         self.speed_frame.grid_propagate(0)
