@@ -1,5 +1,5 @@
 # @Date:   2021-03-22T12:52:26+01:00
-# @Last modified time: 2021-03-23T14:31:25+01:00
+# @Last modified time: 2021-03-23T15:20:54+01:00
 
 from tkinter import *
 import os
@@ -412,7 +412,7 @@ class Dashboard:
         self.dec_speed_ICE_label = Label(self.speed_ICE_frame,
                                          text="."+str(int(self.target_speed*10 % 10))+" km/h")
         self.dec_speed_ICE_label.grid(row=1, column=6)
-        self.dec_speed_ICE_label.configure(bg=self.speed_ICE_frame["bg"], fg="yellow", font=("Arial 25 bold"))
+        self.dec_speed_ICE_label.configure(bg=self.speed_ICE_frame["bg"], fg="yellow", font=("Arial 35 bold"))
 
         self.spacer_frame = Frame(self.master, width=self.width_screen, height=2)
         self.spacer_frame.grid(column=0, row=3, columnspan=6)
@@ -457,7 +457,8 @@ class Dashboard:
         self.int_speed_label.grid(row=1, column=0, sticky='ns')
         self.int_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=self.font_vitesse)
         self.dec_speed_label = Label(self.speed_frame, text="."+str(int(self.speed*10 % 10))+" km/h")
-        self.dec_speed_label.grid(row=1, column=1, sticky='s')
+        # self.dec_speed_label.grid(row=1, column=1, sticky='s')
+        self.dec_speed_label.grid(row=1, column=1)
         self.dec_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 35 bold"))
 
 
@@ -919,7 +920,7 @@ class Dashboard:
         self.soc_label.pack()
         self.soc_label.configure(bg=self.soc_frame["bg"],fg="white", font=self.font_titre_signaux)
 
-        self.soc_value_label=Label(self.soc_frame, text="%s %s" % (self.soc,"%"))
+        self.soc_value_label=Label(self.soc_frame, text="%s%s" % (self.soc,"%"))
         self.soc_value_label.pack(expand=True)
         self.soc_value_label.configure(bg=self.soc_frame["bg"], fg="yellow", font=self.font_titre_donnees)
 
@@ -934,7 +935,7 @@ class Dashboard:
         self.lipo_label.pack()
         self.lipo_label.configure(bg=self.lipo_frame["bg"],fg="white", font=self.font_titre_signaux)
 
-        self.lipo_value_label=Label(self.lipo_frame, text="%s %s" % (self.lipo,"%"))
+        self.lipo_value_label=Label(self.lipo_frame, text="%s%s" % (self.lipo,"%"))
         self.lipo_value_label.pack(expand=True)
         self.lipo_value_label.configure(bg=self.lipo_frame["bg"], fg="yellow", font=self.font_titre_donnees)
 
