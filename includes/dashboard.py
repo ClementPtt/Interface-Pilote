@@ -1,5 +1,5 @@
 # @Date:   2021-03-22T12:52:26+01:00
-# @Last modified time: 2021-03-23T17:27:08+01:00
+# @Last modified time: 2021-03-24T10:29:02+01:00
 
 from tkinter import *
 import os
@@ -32,16 +32,12 @@ class Dashboard:
         self.speed=25 #km/h
         self.hybride_mode=True #False si mode HY pas activé
 
-        # self.speed = 10.5
         self.time = 25320  # en millisecondes
         self.break_value = True
         self.turn_regen = 8
         self.value_regen = 95  # en pourcent
         self.target_speed = 34.5  # en km
         self.turn_ice = 2
-        # self.fuel = True = fuel_mode
-        # self.mode = True  # True en mode hybride = hybride_mode
-        # self.value_soc = 80  # en pourcent = soc
         self.race_delta = -18.5
         self.live_delta = 2.5
         self.n_1_delta = -3.8
@@ -121,7 +117,6 @@ class Dashboard:
         self.space = math.ceil(self.width_screen/50) #variable qui va espacer les différents cadres
         # self.space = self.width_screen/40
 
-        # self.master.geometry(f"{width_screen+space}x{height_screen+space}")
         self.master.geometry(f"{self.width_screen}x{self.height_screen}")
 
 
@@ -143,9 +138,12 @@ class Dashboard:
         self.font_titre_signaux=("Arial", int(self.space*1.2),"bold")
 
 
+
     def __FrameDestroy(self):
         for widget in self.master.winfo_children():
             widget.destroy()
+
+
 
     def DispTRACK(self):
 
@@ -379,7 +377,6 @@ class Dashboard:
                                bg='black')
         self.ICE_frame.grid(column=3, row=2, columnspan=3)
         self.ICE_frame.grid_propagate(0)
-        # self.ICE_frame.rowconfigure(0, minsize=self.height_screen/4-30)
 
         self.turn_ICE_frame = Frame(self.ICE_frame, width=self.width_screen/8-self.space, height=self.height_screen/4-self.space,
                                     bg='white')
@@ -457,11 +454,8 @@ class Dashboard:
         self.int_speed_label.grid(row=1, column=0, sticky='ns')
         self.int_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=self.font_vitesse)
         self.dec_speed_label = Label(self.speed_frame, text="."+str(int(self.speed*10 % 10))+" km/h")
-        # self.dec_speed_label.grid(row=1, column=1, sticky='s')
         self.dec_speed_label.grid(row=1, column=1)
         self.dec_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 35 bold"))
-
-
 
 
 
