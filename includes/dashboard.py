@@ -1,5 +1,5 @@
 # @Date:   2021-03-22T12:52:26+01:00
-# @Last modified time: 2021-03-24T10:29:02+01:00
+# @Last modified time: 2021-03-24T13:57:28+01:00
 
 from tkinter import *
 import os
@@ -11,7 +11,7 @@ class Dashboard:
     def __init__(self, master):
         self.master = master
 
-        #Variables du menu
+        #VARIABLES DU DASHBOARD
         self.engine_rpm=2013 #RPM
         self.engine_torque=2.67 #Nm
         self.engine_temp=84.5 #°C
@@ -31,7 +31,6 @@ class Dashboard:
         self.gps=True #True si connexion GPS OK
         self.speed=25 #km/h
         self.hybride_mode=True #False si mode HY pas activé
-
         self.time = 25320  # en millisecondes
         self.break_value = True
         self.turn_regen = 8
@@ -43,8 +42,8 @@ class Dashboard:
         self.n_1_delta = -3.8
         self.target_soc = 85
 
-        #CONDITIONNEMENT
 
+        #CONDITIONNEMENT
         # Mode Hybride
         if self.hybride_mode == False :
             self.hy_background="white"
@@ -52,7 +51,6 @@ class Dashboard:
         else:
             self.hy_background="red"
             self.hy_police="white"
-
         # Etat ICE Clutch engine
         if self.ice_clutch1 == True :
             self.clutch1_background="red"
@@ -62,7 +60,6 @@ class Dashboard:
             self.clutch1_background="black"
             self.clutch1_contour="white"
             self.clutch1_value="OFF"
-
         # Etat ICE Clutch motor
         if self.ice_clutch2 == True :
             self.clutch2_background="red"
@@ -72,7 +69,6 @@ class Dashboard:
             self.clutch2_background="black"
             self.clutch2_contour="white"
             self.clutch2_value="OFF"
-
         # Fuel mode
         if self.fuel_mode == True :
             self.fuel_mode_value="ON"
@@ -82,7 +78,6 @@ class Dashboard:
             self.fuel_mode_value="OFF"
             self.self.fuel_mode_background="black"
             self.fuel_mode_contour="white"
-
         # Etat connexion 3g
         if self.connexion == True :
             self.etat_connexion_background="#03FF00"
@@ -90,7 +85,6 @@ class Dashboard:
         else:
             self.etat_connexion_background="red"
             self.etat_connexion_label="white"
-
         # Etat connexion GPS
         if self.gps == True :
             self.etat_gps_background="#03FF00"
@@ -98,7 +92,6 @@ class Dashboard:
         else:
             self.etat_gps_background="red"
             self.etat_gps_label="white"
-
         # Etat Breaks
         if self.break_value == False :
             self.breaks_background="black"
@@ -106,29 +99,16 @@ class Dashboard:
             self.breaks_background= "red"
 
 
-
-
-
-        #Fenêtre qui s'adapte à la taille de l'écran
-        self.width_screen = self.master.winfo_screenwidth()-20 #-20 de highlightthockness=10
-        self.height_screen = self.master.winfo_screenheight()-20 #-20 de highlightthockness=10
-
-
+        #FENETRE PRINCIPALE
+        self.width_screen = self.master.winfo_screenwidth()-20 #-20 de highlightthickness=10
+        self.height_screen = self.master.winfo_screenheight()-20 #-20 de highlightthickness=10
         self.space = math.ceil(self.width_screen/50) #variable qui va espacer les différents cadres
         # self.space = self.width_screen/40
-
         self.master.geometry(f"{self.width_screen}x{self.height_screen}")
-
-
-
-        # self.master.title("Menu TEST")
-
-
-
-
         self.master.configure(bg="black", highlightbackground=self.hy_background, highlightcolor=self.hy_background, highlightthickness=10, padx=0, pady=0, borderwidth=0, relief="flat")
 
-        #On définit la taille des différentes font en fonction de la taille de l'écran
+
+        #POLICES
         self.font_titre=("Arial", int(self.space*0.8),"bold")
         self.font_titre_donnees=("Arial", int(self.space*1.5),"bold")
         self.font_donnees=("Arial", int(self.space*1.75),"bold")
@@ -136,7 +116,6 @@ class Dashboard:
         self.font_hy=("Arial", int(self.space*2),"bold")
         self.font_etat_clutch=("Arial", int(self.space*1.2),"bold")
         self.font_titre_signaux=("Arial", int(self.space*1.2),"bold")
-
 
 
     def __FrameDestroy(self):
