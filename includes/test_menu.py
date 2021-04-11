@@ -1,5 +1,5 @@
 # @Date:   2021-04-11T17:20:55+02:00
-# @Last modified time: 2021-04-11T17:51:47+02:00
+# @Last modified time: 2021-04-11T19:25:49+02:00
 
 from tkinter import *
 import os
@@ -11,7 +11,7 @@ from includes.dashboard import *
 class Test(Dashboard):
     def __init__(self, master):
         super().__init__(master)
-        self.FrameDestroy()
+        # self.FrameDestroy()
         self.master.rowconfigure(0, minsize=self.height_screen/8)
         self.master.rowconfigure(1, minsize=self.height_screen/8)
         self.master.rowconfigure(2, minsize=self.height_screen/8)
@@ -30,7 +30,14 @@ class Test(Dashboard):
         self.master.columnconfigure(5, minsize=self.width_screen/8)
         self.master.columnconfigure(6, minsize=self.width_screen/8)
         self.master.columnconfigure(7, minsize=self.width_screen/8)
+        self.update_Frame()
+        self.master.mainloop()
 
+
+
+
+
+    def update_Frame(self):
         self.hybride_mode_frame=Frame(self.master, width=self.width_screen/8, height=self.height_screen/8-5)
         self.hybride_mode_frame.grid(column=0,row=8)
         self.hybride_mode_frame.pack_propagate(0)
@@ -533,3 +540,4 @@ class Test(Dashboard):
         self.speed_unit_label=Label(self.speed_unit_frame, text="km/h")
         self.speed_unit_label.pack(expand=True, anchor=W)
         self.speed_unit_label.configure(bg=self.speed_unit_frame["bg"],fg="yellow", font=self.font_titre_donnees)
+        self.master.after(400, self.update_Frame)

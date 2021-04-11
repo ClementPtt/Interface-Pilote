@@ -1,5 +1,5 @@
 # @Date:   2021-04-11T17:21:44+02:00
-# @Last modified time: 2021-04-11T17:51:25+02:00
+# @Last modified time: 2021-04-11T19:42:20+02:00
 
 from tkinter import *
 import os
@@ -11,7 +11,7 @@ from includes.dashboard import *
 class Track(Dashboard):
     def __init__(self, master):
         super().__init__(master)
-        self.FrameDestroy()
+        # self.FrameDestroy()
         self.master.columnconfigure(0, minsize=self.width_screen/6)
         self.master.columnconfigure(1, minsize=self.width_screen/6)
         self.master.columnconfigure(2, minsize=self.width_screen/6)
@@ -24,7 +24,14 @@ class Track(Dashboard):
         self.master.rowconfigure(2, minsize=self.height_screen/4)
         self.master.rowconfigure(3, minsize=self.space)
         self.master.rowconfigure(4, minsize=self.height_screen/4-self.space)
+        self.update_Frame()
+        self.master.mainloop()
+        # self.master.bind("<Left>", lambda e: Test(window)) #<Left> pour afficher le menu track
 
+
+    
+
+    def update_Frame(self):
         self.lap_frame = Frame(self.master, width=self.width_screen/6-self.space, height=self.height_screen/4-self.space)
         self.lap_frame.grid(column=0, row=0)
         self.lap_frame.configure(bg="black", highlightbackground="white", highlightthickness=2)
@@ -320,3 +327,4 @@ class Track(Dashboard):
         self.dec_speed_label = Label(self.speed_frame, text="."+str(int(self.speed*10 % 10))+" km/h")
         self.dec_speed_label.grid(row=1, column=1)
         self.dec_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.master.after(400, self.update_Frame)
