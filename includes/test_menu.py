@@ -443,7 +443,7 @@ class Test(Dashboard):
 
         self.spacer_frame = Frame(self.master, width=self.width_screen, height=5)
         self.spacer_frame.grid(column=0, row=6, columnspan=8)
-        self.spacer_frame.configure(bg="white")
+        self.spacer_frame.configure(bg=self.hy_background)
 
         #Fuel mode
 
@@ -473,7 +473,7 @@ class Test(Dashboard):
 
         self.soc_value_label=Label(self.soc_frame, text="%s%s" % (self.soc,"%"))
         self.soc_value_label.pack(expand=True)
-        self.soc_value_label.configure(bg=self.soc_frame["bg"], fg="yellow", font=self.font_titre_donnees)
+        self.soc_value_label.configure(bg=self.soc_frame["bg"], fg="yellow", font=self.font_donnees_signaux)
 
         #LIPO
 
@@ -488,7 +488,7 @@ class Test(Dashboard):
 
         self.lipo_value_label=Label(self.lipo_frame, text="%s%s" % (self.lipo,"%"))
         self.lipo_value_label.pack(expand=True)
-        self.lipo_value_label.configure(bg=self.lipo_frame["bg"], fg="yellow", font=self.font_titre_donnees)
+        self.lipo_value_label.configure(bg=self.lipo_frame["bg"], fg="yellow", font=self.font_donnees_signaux)
 
         #3G
 
@@ -499,7 +499,7 @@ class Test(Dashboard):
 
         self.connexion_label=Label(self.connexion_frame, text="3G")
         self.connexion_label.pack(pady=0.5*self.space)
-        self.connexion_label.configure(bg=self.connexion_frame["bg"],fg=self.etat_connexion_label, font=self.font_titre_donnees)
+        self.connexion_label.configure(bg=self.connexion_frame["bg"],fg=self.etat_connexion_label, font=self.font_donnees_signaux)
 
         #GPS
 
@@ -510,7 +510,7 @@ class Test(Dashboard):
 
         self.gps_label=Label(self.gps_frame, text="GPS")
         self.gps_label.pack(pady=0.5*self.space)
-        self.gps_label.configure(bg=self.gps_frame["bg"],fg=self.etat_gps_label, font=self.font_titre_donnees)
+        self.gps_label.configure(bg=self.gps_frame["bg"],fg=self.etat_gps_label, font=self.font_donnees_signaux)
 
         #Speed
 
@@ -540,4 +540,4 @@ class Test(Dashboard):
         self.speed_unit_label=Label(self.speed_unit_frame, text="km/h")
         self.speed_unit_label.pack(expand=True, anchor=W)
         self.speed_unit_label.configure(bg=self.speed_unit_frame["bg"],fg="yellow", font=self.font_titre_donnees)
-        self.master.after(400, self.update_Frame)
+        self.master.after(1000, self.update_Frame)

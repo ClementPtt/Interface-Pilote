@@ -39,11 +39,11 @@ class Track(Dashboard):
 
         self.lap_label = Label(self.lap_frame, text="LAP")
         self.lap_label.pack()
-        self.lap_label.configure(bg=self.lap_frame["bg"], fg="white", font=("Arial 26 bold"))
+        self.lap_label.configure(bg=self.lap_frame["bg"], fg="white", font=self.font_titre)
 
         self.num_lap_label = Label(self.lap_frame, text="8/11")
         self.num_lap_label.pack(expand=True)
-        self.num_lap_label.configure(bg=self.lap_frame["bg"], fg="yellow", font=("Arial 50 bold"))
+        self.num_lap_label.configure(bg=self.lap_frame["bg"], fg="yellow", font=self.font_donnees_track)
 
         self.SOC_frame = LabelFrame(self.master, width=self.width_screen/6-self.space, height=self.height_screen/4-self.space)
         self.SOC_frame.grid(column=5, row=0)
@@ -52,11 +52,11 @@ class Track(Dashboard):
 
         self.SOC_label = Label(self.SOC_frame, text="SOC")
         self.SOC_label.pack()
-        self.SOC_label.configure(bg=self.SOC_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.SOC_label.configure(bg=self.SOC_frame["bg"], fg="white", font=self.font_titre)
 
         self.state_label = Label(self.SOC_frame, text=str(self.soc)+'%')
         self.state_label.pack(expand=True)
-        self.state_label.configure(bg=self.SOC_frame["bg"], fg="yellow", font=("Arial 50 bold"))
+        self.state_label.configure(bg=self.SOC_frame["bg"], fg="yellow", font=self.font_donnees_track)
 
         self.TSOC_frame = Frame(self.master)
         self.TSOC_frame.grid(column=1, row=0, columnspan=4)
@@ -140,11 +140,11 @@ class Track(Dashboard):
         self.TSOC_num_frame.configure(bg="black")
 
         self.TSOC_title_label = Label(self.TSOC_num_frame, text='TARGET SOC ')
-        self.TSOC_title_label.configure(font=("Arial 30 bold"), bg='black', fg='white')
+        self.TSOC_title_label.configure(font=self.font_titre, bg='black', fg='white')
         self.TSOC_title_label.grid(column=0, row=0, sticky='s')
 
         self.TSOC_num_label = Label(self.TSOC_num_frame, text=str(self.target_soc)+'%')
-        self.TSOC_num_label.configure(font=("Arial 50 bold"), bg='black', fg='yellow')
+        self.TSOC_num_label.configure(font=self.font_donnees_track, bg='black', fg='yellow')
         self.TSOC_num_label.grid(column=1, row=0)
 
 
@@ -166,11 +166,11 @@ class Track(Dashboard):
         self.liveD_frame.pack_propagate(0)
 
         self.liveD_label = Label(self.liveD_frame, text='LIVE DELTA')
-        self.liveD_label.configure(font=("Arial 25 bold"), bg='white', fg='black')
+        self.liveD_label.configure(font=self.font_titre, bg='white', fg='black')
         self.liveD_label.pack()
 
         self.num_liveD_label = Label(self.liveD_frame, text=str(self.live_delta)+'s')
-        self.num_liveD_label.configure(font=("Arial 40 bold"), bg='white', fg='red')
+        self.num_liveD_label.configure(font=self.font_donnees, bg='white', fg='red')
         self.num_liveD_label.pack(expand=True)
 
         self.raceD_frame = Frame(self.deltas_frame, width=self.width_screen*2/9-2-2*self.space/3,
@@ -179,11 +179,11 @@ class Track(Dashboard):
         self.raceD_frame.pack_propagate(0)
 
         self.raceD_label = Label(self.raceD_frame, text='RACE DELTA')
-        self.raceD_label.configure(font=("Arial 25 bold"), bg=self.deltas_frame["bg"], fg='white')
+        self.raceD_label.configure(font=self.font_titre, bg=self.deltas_frame["bg"], fg='white')
         self.raceD_label.pack()
 
         self.num_raceD_label = Label(self.raceD_frame, text=str(self.race_delta)+'s')
-        self.num_raceD_label.configure(font=("Arial 40 bold"), bg=self.deltas_frame["bg"], fg='green')
+        self.num_raceD_label.configure(font=self.font_donnees, bg=self.deltas_frame["bg"], fg='green')
         self.num_raceD_label.pack(expand=True)
 
         self.nD_frame = Frame(self.deltas_frame, width=self.width_screen*2/9-2-2*self.space/3,
@@ -192,11 +192,11 @@ class Track(Dashboard):
         self.nD_frame.pack_propagate(0)
 
         self.nD_label = Label(self.nD_frame, text='N-1 DELTA')
-        self.nD_label.configure(font=("Arial 25 bold"), bg=self.deltas_frame["bg"], fg='white')
+        self.nD_label.configure(font=self.font_titre, bg=self.deltas_frame["bg"], fg='white')
         self.nD_label.pack()
 
         self.nD_label = Label(self.nD_frame, text=str(self.n_1_delta)+'s')
-        self.nD_label.configure(font=("Arial 40 bold"), bg=self.deltas_frame["bg"], fg='green')
+        self.nD_label.configure(font=self.font_donnees, bg=self.deltas_frame["bg"], fg='green')
         self.nD_label.pack(expand=True)
 
         self.fuel_frame = Frame(self.master, width=self.width_screen/6-self.space, height=self.height_screen/4-self.space)
@@ -206,11 +206,11 @@ class Track(Dashboard):
 
         self.fuel_label = Label(self.fuel_frame, text="FUEL")
         self.fuel_label.pack()
-        self.fuel_label.configure(bg=self.fuel_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.fuel_label.configure(bg=self.fuel_frame["bg"], fg="white", font=self.font_titre)
 
         self.state_label = Label(self.fuel_frame, text="ON")
         self.state_label.pack(expand=True)
-        self.state_label.configure(bg=self.fuel_frame["bg"], fg="yellow", font=("Arial 50 bold"))
+        self.state_label.configure(bg=self.fuel_frame["bg"], fg="yellow", font=self.font_donnees_track)
 
         self.regen_frame = Frame(self.master, width=3*self.width_screen/6-self.space*2, height=self.height_screen/4-self.space)
         self.regen_frame.grid(column=0, row=2, columnspan=3)
@@ -223,11 +223,11 @@ class Track(Dashboard):
         self.turn_regen_frame.pack_propagate(0)
 
         self.turn_regen_label = Label(self.turn_regen_frame, text='TURN')
-        self.turn_regen_label.configure(font=("Arial 35 bold"), bg=self.turn_regen_frame["bg"])
+        self.turn_regen_label.configure(font=self.font_etat_clutch, bg=self.turn_regen_frame["bg"])
         self.turn_regen_label.pack()
 
         self.num_turn_regen_label = Label(self.turn_regen_frame, text=str(self.turn_regen))
-        self.num_turn_regen_label.configure(font=("Arial 80 bold"), bg=self.turn_regen_frame["bg"])
+        self.num_turn_regen_label.configure(font=self.font_turn, bg=self.turn_regen_frame["bg"])
         self.num_turn_regen_label.pack(expand=True)
 
         self.speed_regen_frame = Frame(self.regen_frame, width=3*self.width_screen/8-self.space,
@@ -237,11 +237,11 @@ class Track(Dashboard):
         self.speed_regen_frame.pack_propagate(0)
 
         self.speed_regen_label = Label(self.speed_regen_frame, text='REGEN')
-        self.speed_regen_label.configure(font=("Arial 30 bold"), bg=self.speed_regen_frame["bg"], fg="white")
+        self.speed_regen_label.configure(font=self.font_titre_ice, bg=self.speed_regen_frame["bg"], fg="white")
         self.speed_regen_label.pack(anchor='nw')
 
         self.num_speed_regen_label = Label(self.speed_regen_frame, text=str(self.value_regen)+'%')
-        self.num_speed_regen_label.configure(font=("Arial 50 bold"), bg=self.speed_regen_frame["bg"], fg="yellow")
+        self.num_speed_regen_label.configure(font=self.font_donnees_track, bg=self.speed_regen_frame["bg"], fg="yellow")
         self.num_speed_regen_label.pack(expand=True)
 
         self.ICE_frame = Frame(self.master, width=3*self.width_screen/6-self.space*2, height=self.height_screen/4-self.space,
@@ -255,11 +255,11 @@ class Track(Dashboard):
         self.turn_ICE_frame.pack_propagate(0)
 
         self.turn_ICE_label = Label(self.turn_ICE_frame, text='TURN')
-        self.turn_ICE_label.configure(font=("Arial 35 bold"), bg=self.turn_ICE_frame["bg"])
+        self.turn_ICE_label.configure(font=self.font_etat_clutch, bg=self.turn_ICE_frame["bg"])
         self.turn_ICE_label.pack()
 
         self.num_turn_ICE_label = Label(self.turn_ICE_frame, text=str(self.turn_ice))
-        self.num_turn_ICE_label.configure(font=("Arial 80 bold"), bg=self.turn_ICE_frame["bg"])
+        self.num_turn_ICE_label.configure(font=self.font_turn, bg=self.turn_ICE_frame["bg"])
         self.num_turn_ICE_label.pack(expand=True)
 
         self.speed_ICE_frame = Frame(self.ICE_frame, width=3*self.width_screen/8-self.space,
@@ -270,7 +270,7 @@ class Track(Dashboard):
         # self.ICE_frame.columnconfigure(0, minsize=(3*self.width_screen/8-self.space)/2)
 
         self.speed_ICE_label = Label(self.speed_ICE_frame, text='ICE')
-        self.speed_ICE_label.configure(font=("Arial 30 bold"), bg=self.speed_ICE_frame["bg"], fg="white")
+        self.speed_ICE_label.configure(font=self.font_titre_ice, bg=self.speed_ICE_frame["bg"], fg="white")
         self.speed_ICE_label.grid(column=0, row=0)
         self.speed_ICE_frame.columnconfigure(0)
 
@@ -280,7 +280,7 @@ class Track(Dashboard):
         self.dec_speed_ICE_label = Label(self.speed_ICE_frame,
                                          text="."+str(int(self.target_speed*10 % 10))+" km/h")
         self.dec_speed_ICE_label.grid(row=1, column=6)
-        self.dec_speed_ICE_label.configure(bg=self.speed_ICE_frame["bg"], fg="yellow", font=("Arial 35 bold"))
+        self.dec_speed_ICE_label.configure(bg=self.speed_ICE_frame["bg"], fg="yellow", font=self.font_donnees)
 
         self.spacer_frame = Frame(self.master, width=self.width_screen, height=2)
         self.spacer_frame.grid(column=0, row=3, columnspan=6)
@@ -293,7 +293,7 @@ class Track(Dashboard):
 
         self.breaks_label = Label(self.breaks_mode_frame, text="BRK")
         self.breaks_label.pack(expand=True)
-        self.breaks_label.configure(bg=self.breaks_background, fg="white", font=("Arial 30 bold"))
+        self.breaks_label.configure(bg=self.breaks_background, fg="white", font=self.font_etat_clutch)
 
         self.mode_label = Label(self.breaks_mode_frame, text="HY")
         self.mode_label.pack(anchor="sw", side=BOTTOM)
@@ -306,11 +306,11 @@ class Track(Dashboard):
 
         self.time_label = Label(self.time_frame, text="TIME")
         self.time_label.pack(anchor='nw')
-        self.time_label.configure(bg=self.time_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.time_label.configure(bg=self.time_frame["bg"], fg="white", font=self.font_titre)
 
         self.num_time_label = Label(self.time_frame, text="00:02:11")
         self.num_time_label.pack(expand=True, anchor='nw')
-        self.num_time_label.configure(bg=self.time_frame["bg"], fg="yellow", font=("Arial 90 bold"))
+        self.num_time_label.configure(bg=self.time_frame["bg"], fg="yellow", font=self.font_time)
 
         self.speed_frame = Frame(self.master, width=2*self.width_screen/6-self.space, height=self.height_screen/4-self.space)
         self.speed_frame.grid(column=4, row=4, columnspan=2)
@@ -319,12 +319,13 @@ class Track(Dashboard):
 
         self.speed_label = Label(self.speed_frame, text="SPEED")
         self.speed_label.grid(row=0, column=0)
-        self.speed_label.configure(bg=self.speed_frame["bg"], fg="white", font=("Arial 25 bold"))
+        self.speed_label.configure(bg=self.speed_frame["bg"], fg="white", font=self.font_titre)
 
         self.int_speed_label = Label(self.speed_frame, text=str(int(self.speed)))
         self.int_speed_label.grid(row=1, column=0, sticky='ns')
-        self.int_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=self.font_vitesse)
+        self.int_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=self.font_vitesse_track)
         self.dec_speed_label = Label(self.speed_frame, text="."+str(int(self.speed*10 % 10))+" km/h")
         self.dec_speed_label.grid(row=1, column=1)
-        self.dec_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=("Arial 35 bold"))
-        self.master.after(400, self.update_Frame)
+        self.dec_speed_label.configure(bg=self.speed_frame["bg"], fg="yellow", font=self.font_donnees)
+        self.master.after(1000, self.update_Frame)
+

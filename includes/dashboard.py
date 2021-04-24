@@ -24,29 +24,35 @@ class Dashboard:
         #POLICES
         self.font_titre=("Arial", int(self.space*0.8),"bold")
         self.font_titre_donnees=("Arial", int(self.space*1.5),"bold")
-        self.font_donnees=("Arial", int(self.space*1.75),"bold")
-        self.font_vitesse=("Arial", int(self.space*2.5),"bold")
+        self.font_donnees=("Arial", int(self.space*1.5),"bold")
+        self.font_donnees_track=("Arial", int(self.space*1.8),"bold")
+        self.font_time=("Arial", int(self.space*3),"bold")
+        self.font_vitesse_track=("Arial", int(self.space*3),"bold")
+        self.font_turn=("Arial", int(self.space*2.5),"bold")
+        self.font_donnees_signaux=("Arial", int(self.space*1.4),"bold")
+        self.font_vitesse=("Arial", int(self.space*2.3),"bold")
         self.font_hy=("Arial", int(self.space*2),"bold")
         self.font_etat_clutch=("Arial", int(self.space*1.2),"bold")
+        self.font_titre_ice=("Arial", int(self.space*1),"bold")
         self.font_titre_signaux=("Arial", int(self.space*1.2),"bold")
         self.master.attributes('-fullscreen',True) #affichage plein écran
         self.master.bind("<Escape>", lambda e: self.master.destroy()) #<ESC> pour pouvoir fermer le programe
 
     def waitForLeft(self, var, ft):
-        self.master.bind("<Left>", lambda var: ft(self.master)) #<Left> pour afficher le menu track
+        self.master.bind("<Left>", lambda var : ft(self.master)) #<Left> pour afficher le menu track
 
     def update_Datas(self):
         with open("log_test.csv") as log:
             file = csv.reader(log, delimiter=',')
             for row in file:
                 #VARIABLES DU DASHBOARD
-                self.engine_rpm=float(row[0])
+                self.engine_rpm=int(row[0])
                 self.engine_torque=float(row[1]) #Nm
                 self.engine_temp=float(row[2]) #°C
                 self.p_fuel=float(row[3]) #bars
                 self.fuel_cons=float(row[4]) #mL
                 self.ice_clutch1=row[5] #True si ICE Clutch ON
-                self.motor_rpm=float(row[6])
+                self.motor_rpm=int(row[6])
                 self.motor_torque=float(row[7])
                 self.motor_temp=float(row[8])
                 self.distance=float(row[9]) #km
@@ -57,14 +63,14 @@ class Dashboard:
                 self.lipo=float(row[14]) #%
                 self.connexion=row[15] #True si état de connexion 3g OK
                 self.gps=row[16] #True si connexion GPS OK
-                self.speed=float(row[17]) #km/h
+                self.speed=int(row[17]) #km/h
                 self.hybride_mode=row[18] #False si mode HY pas activé
                 self.time = float(row[19])  # en millisecondes
                 self.break_value = row[20]
-                self.turn_regen = float(row[21])
+                self.turn_regen = int(row[21])
                 self.value_regen = float(row[22])  # en pourcent
                 self.target_speed = float(row[23]) # en km
-                self.turn_ice = float(row[24])
+                self.turn_ice = int(row[24])
                 self.race_delta = float(row[25])
                 self.live_delta = float(row[26])
                 self.n_1_delta = float(row[27])
@@ -125,7 +131,7 @@ class Dashboard:
             self.breaks_background="black"
         else:
             self.breaks_background= "red"
-        self.master.after(100, self.update_Datas)
+        self.master.after(50, self.update_Datas)
 
 
     def FrameDestroy(self):
